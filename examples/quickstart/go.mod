@@ -1,10 +1,10 @@
-module github.com/DarkInno/saas/examples/quickstart
+module github.com/im10furry/saas/examples/quickstart
 
 go 1.22.0
 
 require (
-	github.com/DarkInno/saas v0.3.0
-	github.com/DarkInno/saas/data/gorm v0.3.0
+	github.com/im10furry/saas v0.3.0
+	github.com/im10furry/saas/data/gorm v0.3.0
 	gorm.io/driver/mysql v1.6.0
 	gorm.io/gorm v1.31.2
 )
@@ -17,6 +17,6 @@ require (
 	golang.org/x/text v0.20.0 // indirect
 )
 
-replace github.com/DarkInno/saas => ../..
+replace github.com/im10furry/saas => ../..
 
-replace github.com/DarkInno/saas/data/gorm => ../../data/gorm
+replace github.com/im10furry/saas/data/gorm => ../../data/gorm

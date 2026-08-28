@@ -1,10 +1,10 @@
-module github.com/DarkInno/saas/examples/grpc
+module github.com/im10furry/saas/examples/grpc
 
 go 1.23.0
 
 require (
-	github.com/DarkInno/saas v0.3.0
-	github.com/DarkInno/saas/rpc/grpc v0.3.0
+	github.com/im10furry/saas v0.3.0
+	github.com/im10furry/saas/rpc/grpc v0.3.0
 	google.golang.org/grpc v1.75.1
 )
 
@@ -16,6 +16,6 @@ require (
 	google.golang.org/protobuf v1.36.6 // indirect
 )
 
-replace github.com/DarkInno/saas => ../..
+replace github.com/im10furry/saas => ../..
 
-replace github.com/DarkInno/saas/rpc/grpc => ../../rpc/grpc
+replace github.com/im10furry/saas/rpc/grpc => ../../rpc/grpc

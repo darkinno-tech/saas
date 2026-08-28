@@ -1,9 +1,9 @@
-module github.com/DarkInno/saas/web/echo
+module github.com/im10furry/saas/web/echo
 
 go 1.23.0
 
 require (
-	github.com/DarkInno/saas v0.3.0
+	github.com/im10furry/saas v0.3.0
 	github.com/labstack/echo/v4 v4.13.4
 )
 
@@ -19,4 +19,4 @@ require (
 	golang.org/x/text v0.25.0 // indirect
 )
 
-replace github.com/DarkInno/saas => ../..
+replace github.com/im10furry/saas => ../..

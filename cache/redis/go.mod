@@ -1,9 +1,9 @@
-module github.com/DarkInno/saas/cache/redis
+module github.com/im10furry/saas/cache/redis
 
 go 1.24.0
 
 require (
-	github.com/DarkInno/saas v0.3.0
+	github.com/im10furry/saas v0.3.0
 	github.com/redis/go-redis/v9 v9.21.0
 )
 
@@ -12,4 +12,4 @@ require (
 	go.uber.org/atomic v1.11.0 // indirect
 )
 
-replace github.com/DarkInno/saas => ../..
+replace github.com/im10furry/saas => ../..

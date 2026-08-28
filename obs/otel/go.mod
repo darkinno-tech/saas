@@ -1,9 +1,9 @@
-module github.com/DarkInno/saas/obs/otel
+module github.com/im10furry/saas/obs/otel
 
 go 1.23.0
 
 require (
-	github.com/DarkInno/saas v0.3.0
+	github.com/im10furry/saas v0.3.0
 	go.opentelemetry.io/otel v1.38.0
 	go.opentelemetry.io/otel/trace v1.38.0
 )
@@ -15,4 +15,4 @@ require (
 	go.opentelemetry.io/otel/metric v1.38.0 // indirect
 )
 
-replace github.com/DarkInno/saas => ../..
+replace github.com/im10furry/saas => ../..

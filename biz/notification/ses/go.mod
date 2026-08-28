@@ -1,9 +1,9 @@
-module github.com/DarkInno/saas/biz/notification/ses
+module github.com/im10furry/saas/biz/notification/ses
 
 go 1.23.0
 
 require (
-	github.com/DarkInno/saas v0.3.0
+	github.com/im10furry/saas v0.3.0
 	github.com/aws/aws-sdk-go-v2/service/sesv2 v1.55.2
 	github.com/aws/smithy-go v1.24.0
 )
@@ -15,4 +15,4 @@ require (
 	github.com/aws/aws-sdk-go-v2/internal/v4a v1.4.15 // indirect
 )
 
-replace github.com/DarkInno/saas => ../../..
+replace github.com/im10furry/saas => ../../..
