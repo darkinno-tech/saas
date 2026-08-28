@@ -3,8 +3,8 @@ package tenant
 import (
 	"context"
 
-	tenantctx "github.com/DarkInno/saas/core/context"
-	"github.com/DarkInno/saas/core/types"
+	tenantctx "github.com/im10furry/saas/core/context"
+	"github.com/im10furry/saas/core/types"
 )
 
 // HardDelete physically removes a tenant and requires host context.

@@ -8,10 +8,10 @@ import (
 	"strings"
 	"testing"
 
-	tenantctx "github.com/DarkInno/saas/core/context"
-	"github.com/DarkInno/saas/core/resolver"
-	"github.com/DarkInno/saas/core/store"
-	"github.com/DarkInno/saas/core/types"
+	tenantctx "github.com/im10furry/saas/core/context"
+	"github.com/im10furry/saas/core/resolver"
+	"github.com/im10furry/saas/core/store"
+	"github.com/im10furry/saas/core/types"
 
 	"github.com/labstack/echo/v4"
 )

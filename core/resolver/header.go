@@ -3,7 +3,7 @@ package resolver
 import (
 	"net/http"
 
-	"github.com/DarkInno/saas/core/types"
+	"github.com/im10furry/saas/core/types"
 )
 
 const (

@@ -5,7 +5,7 @@ import (
 	"crypto/rand"
 	"encoding/hex"
 
-	"github.com/DarkInno/saas/core/types"
+	"github.com/im10furry/saas/core/types"
 )
 
 // IDGenerator creates tenant identifiers when CreateInput omits ID.

@@ -3,7 +3,7 @@ package subscription
 import (
 	"time"
 
-	"github.com/DarkInno/saas/core/types"
+	"github.com/im10furry/saas/core/types"
 )
 
 // Subscription binds a tenant to a plan.

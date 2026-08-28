@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/DarkInno/saas/core/types"
+	"github.com/im10furry/saas/core/types"
 )
 
 // DomainContrib resolves tenant IDs from single-label subdomains.

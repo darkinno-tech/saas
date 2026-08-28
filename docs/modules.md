@@ -9,13 +9,13 @@ dependencies. Add an integration module only when application code imports it.
 
 ## Core module
 
-The root module is `github.com/DarkInno/saas` and supports Go `1.22+`.
+The root module is `github.com/im10furry/saas` and supports Go `1.22+`.
 It contains the tenant boundary, lifecycle services, `database/sql` and sqlx
 helpers, `net/http` middleware, in-memory cache, `slog` helpers, and business
 modules that do not need an external provider SDK.
 
 ```bash
-go get github.com/DarkInno/saas@v0.3.0
+go get github.com/im10furry/saas@v0.3.0
 ```
 
 ### Host-integrated domain packages
@@ -35,8 +35,8 @@ For example, a GORM application installs exactly the root module and the GORM
 adapter:
 
 ```bash
-go get github.com/DarkInno/saas@v0.3.0
-go get github.com/DarkInno/saas/data/gorm@v0.3.0
+go get github.com/im10furry/saas@v0.3.0
+go get github.com/im10furry/saas/data/gorm@v0.3.0
 ```
 
 ## Optional integration modules
@@ -47,23 +47,23 @@ raises the requirement for the consuming application accordingly.
 
 | Module path | Minimum Go | Purpose |
 |---|---:|---|
-| `github.com/DarkInno/saas/data/gorm` | 1.22 | GORM v2 tenant plugin and guards |
-| `github.com/DarkInno/saas/web/gin` | 1.22 | Gin middleware and guards |
-| `github.com/DarkInno/saas/web/fiber` | 1.22 | Fiber middleware and guards |
-| `github.com/DarkInno/saas/web/kratos` | 1.22 | Kratos middleware and guards |
-| `github.com/DarkInno/saas/data/ent` | 1.23 | Ent predicates, filters, and hooks |
-| `github.com/DarkInno/saas/web/echo` | 1.23 | Echo middleware and guards |
-| `github.com/DarkInno/saas/rpc/grpc` | 1.23 | gRPC unary and stream interceptors |
-| `github.com/DarkInno/saas/obs/otel` | 1.23 | OpenTelemetry tracing helpers |
-| `github.com/DarkInno/saas/biz/notification/ses` | 1.23 | Amazon SES v2 notifier |
-| `github.com/DarkInno/saas/cache/redis` | 1.24 | `go-redis/v9` cache adapter |
-| `github.com/DarkInno/saas/biz/identity/oidc` | 1.24 | OIDC authorization-code bridge |
+| `github.com/im10furry/saas/data/gorm` | 1.22 | GORM v2 tenant plugin and guards |
+| `github.com/im10furry/saas/web/gin` | 1.22 | Gin middleware and guards |
+| `github.com/im10furry/saas/web/fiber` | 1.22 | Fiber middleware and guards |
+| `github.com/im10furry/saas/web/kratos` | 1.22 | Kratos middleware and guards |
+| `github.com/im10furry/saas/data/ent` | 1.23 | Ent predicates, filters, and hooks |
+| `github.com/im10furry/saas/web/echo` | 1.23 | Echo middleware and guards |
+| `github.com/im10furry/saas/rpc/grpc` | 1.23 | gRPC unary and stream interceptors |
+| `github.com/im10furry/saas/obs/otel` | 1.23 | OpenTelemetry tracing helpers |
+| `github.com/im10furry/saas/biz/notification/ses` | 1.23 | Amazon SES v2 notifier |
+| `github.com/im10furry/saas/cache/redis` | 1.24 | `go-redis/v9` cache adapter |
+| `github.com/im10furry/saas/biz/identity/oidc` | 1.24 | OIDC authorization-code bridge |
 
 Install any one of them with `go get <module-path>@v0.3.0`. For example:
 
 ```bash
-go get github.com/DarkInno/saas/cache/redis@v0.3.0
-go get github.com/DarkInno/saas/biz/identity/oidc@v0.3.0
+go get github.com/im10furry/saas/cache/redis@v0.3.0
+go get github.com/im10furry/saas/biz/identity/oidc@v0.3.0
 ```
 
 This is intentional compatibility isolation: Go 1.22 and 1.23 applications
@@ -77,10 +77,10 @@ application's dependency graph. Run them from the repository root with `go -C`:
 
 | Example module | Minimum Go | Command |
 |---|---:|---|
-| `github.com/DarkInno/saas/examples/quickstart` | 1.22 | `go -C examples/quickstart run .` |
-| `github.com/DarkInno/saas/examples/gin-gorm` | 1.22 | `go -C examples/gin-gorm run .` |
-| `github.com/DarkInno/saas/examples/grpc` | 1.23 | `go -C examples/grpc run .` |
-| `github.com/DarkInno/saas/examples/ent` | 1.23 | `go -C examples/ent run .` |
+| `github.com/im10furry/saas/examples/quickstart` | 1.22 | `go -C examples/quickstart run .` |
+| `github.com/im10furry/saas/examples/gin-gorm` | 1.22 | `go -C examples/gin-gorm run .` |
+| `github.com/im10furry/saas/examples/grpc` | 1.23 | `go -C examples/grpc run .` |
+| `github.com/im10furry/saas/examples/ent` | 1.23 | `go -C examples/ent run .` |
 
 ## Release and tag rules
 
@@ -89,9 +89,9 @@ directory prefix in a tag for every nested module:
 
 | Module | Release tag for v0.3.0 |
 |---|---|
-| Root `github.com/DarkInno/saas` | `v0.3.0` |
-| `github.com/DarkInno/saas/data/gorm` | `data/gorm/v0.3.0` |
-| `github.com/DarkInno/saas/cache/redis` | `cache/redis/v0.3.0` |
+| Root `github.com/im10furry/saas` | `v0.3.0` |
+| `github.com/im10furry/saas/data/gorm` | `data/gorm/v0.3.0` |
+| `github.com/im10furry/saas/cache/redis` | `cache/redis/v0.3.0` |
 | Any other nested module at `<path>` | `<path>/v0.3.0` |
 
 The same rule applies to the example modules, for example
@@ -106,21 +106,21 @@ own module paths or require an explicit module installation.
 
 | Before v0.3.0 | After v0.3.0 |
 |---|---|
-| `cache.NewRedis`, `cache.NewRedisFromOptions`, `cache.NewRedisFromClusterOptions`, `cache.NewRedisFromURL` from `github.com/DarkInno/saas/cache` | Import `github.com/DarkInno/saas/cache/redis`; use `redis.New`, `redis.NewFromOptions`, `redis.NewFromClusterOptions`, and `redis.NewFromURL`. |
-| `obs.NewTracer`, `obs.SpanAttributes`, `obs.AddSpanAttributes`, `obs.StartSpan`, `obs.RecordSpanError` from `github.com/DarkInno/saas/obs` | Import `github.com/DarkInno/saas/obs/otel`; use the same helper names through the `otel` package. |
-| `notification.NewSESNotifier` and the `notification.SES*` types | Import `github.com/DarkInno/saas/biz/notification/ses`; use `ses.NewSESNotifier` and `ses.SES*` types. |
-| Root-owned OIDC integration | Add `github.com/DarkInno/saas/biz/identity/oidc@v0.3.0` explicitly. The package import path and name remain `oidc`; `biz/identity` remains the core post-auth identity mapping package. |
+| `cache.NewRedis`, `cache.NewRedisFromOptions`, `cache.NewRedisFromClusterOptions`, `cache.NewRedisFromURL` from `github.com/im10furry/saas/cache` | Import `github.com/im10furry/saas/cache/redis`; use `redis.New`, `redis.NewFromOptions`, `redis.NewFromClusterOptions`, and `redis.NewFromURL`. |
+| `obs.NewTracer`, `obs.SpanAttributes`, `obs.AddSpanAttributes`, `obs.StartSpan`, `obs.RecordSpanError` from `github.com/im10furry/saas/obs` | Import `github.com/im10furry/saas/obs/otel`; use the same helper names through the `otel` package. |
+| `notification.NewSESNotifier` and the `notification.SES*` types | Import `github.com/im10furry/saas/biz/notification/ses`; use `ses.NewSESNotifier` and `ses.SES*` types. |
+| Root-owned OIDC integration | Add `github.com/im10furry/saas/biz/identity/oidc@v0.3.0` explicitly. The package import path and name remain `oidc`; `biz/identity` remains the core post-auth identity mapping package. |
 
 For example, migrate a Redis adapter import as follows:
 
 ```go
 // Before
-import "github.com/DarkInno/saas/cache"
+import "github.com/im10furry/saas/cache"
 
 client, err := cache.NewRedis(redisClient)
 
 // After
-import cacheredis "github.com/DarkInno/saas/cache/redis"
+import cacheredis "github.com/im10furry/saas/cache/redis"
 
 client, err := cacheredis.New(redisClient)
 ```

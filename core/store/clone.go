@@ -3,7 +3,7 @@ package store
 import (
 	"maps"
 
-	"github.com/DarkInno/saas/core/types"
+	"github.com/im10furry/saas/core/types"
 )
 
 func cloneTenant(tenant types.Tenant) types.Tenant {

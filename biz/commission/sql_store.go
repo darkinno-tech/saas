@@ -10,8 +10,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/DarkInno/saas/core/types"
-	"github.com/DarkInno/saas/internal/sqlutil"
+	"github.com/im10furry/saas/core/types"
+	"github.com/im10furry/saas/internal/sqlutil"
 )
 
 const commissionMutationMaxAttempts = 4

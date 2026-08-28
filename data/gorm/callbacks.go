@@ -3,7 +3,7 @@ package gormtenant
 import (
 	"context"
 
-	"github.com/DarkInno/saas/data"
+	"github.com/im10furry/saas/data"
 
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"

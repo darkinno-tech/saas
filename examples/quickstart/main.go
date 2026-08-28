@@ -3,9 +3,9 @@ package main
 import (
 	"context"
 
-	tenantctx "github.com/DarkInno/saas/core/context"
-	"github.com/DarkInno/saas/core/types"
-	gormtenant "github.com/DarkInno/saas/data/gorm"
+	tenantctx "github.com/im10furry/saas/core/context"
+	"github.com/im10furry/saas/core/types"
+	gormtenant "github.com/im10furry/saas/data/gorm"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

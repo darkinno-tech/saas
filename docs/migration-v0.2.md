@@ -9,13 +9,13 @@ Go version remains `1.24.0`.
 
 | Before | After |
 |---|---|
-| `github.com/DarkInno/gotenancy` | `github.com/DarkInno/saas` |
-| `github.com/DarkInno/gotenancy/saas/tenant` | `github.com/DarkInno/saas/tenant` |
-| `github.com/DarkInno/gotenancy/saas/plan` | `github.com/DarkInno/saas/plan` |
-| `github.com/DarkInno/gotenancy/saas/subscription` | `github.com/DarkInno/saas/subscription` |
-| `github.com/DarkInno/gotenancy/saas/quota` | `github.com/DarkInno/saas/quota` |
-| `github.com/DarkInno/gotenancy/saas/feature` | `github.com/DarkInno/saas/feature` |
-| `github.com/DarkInno/gotenancy/saas/onboarding` | `github.com/DarkInno/saas/onboarding` |
+| `github.com/im10furry/gotenancy` | `github.com/im10furry/saas` |
+| `github.com/im10furry/gotenancy/saas/tenant` | `github.com/im10furry/saas/tenant` |
+| `github.com/im10furry/gotenancy/saas/plan` | `github.com/im10furry/saas/plan` |
+| `github.com/im10furry/gotenancy/saas/subscription` | `github.com/im10furry/saas/subscription` |
+| `github.com/im10furry/gotenancy/saas/quota` | `github.com/im10furry/saas/quota` |
+| `github.com/im10furry/gotenancy/saas/feature` | `github.com/im10furry/saas/feature` |
+| `github.com/im10furry/gotenancy/saas/onboarding` | `github.com/im10furry/saas/onboarding` |
 
 The root package identifier changes from `gotenancy` to `saas`. Framework
 adapter package identifiers follow the same rename: `gingotenancy`,
@@ -24,7 +24,7 @@ adapter package identifiers follow the same rename: `gingotenancy`,
 `kratossaas`, and `grpcsaas`.
 
 ```bash
-go get github.com/DarkInno/saas@v0.2.0
+go get github.com/im10furry/saas@v0.2.0
 go mod tidy
 ```
 
@@ -41,7 +41,7 @@ transparent import-path shim.
 | Webhook tenant header | `X-GoTenancy-Tenant-ID` | `X-SaaS-Tenant-ID` |
 | Webhook channel header | `X-GoTenancy-Channel` | `X-SaaS-Channel` |
 | Default outbound User-Agent | `gotenancy` | `saas` |
-| OpenTelemetry scope | `github.com/DarkInno/gotenancy` | `github.com/DarkInno/saas` |
+| OpenTelemetry scope | `github.com/im10furry/gotenancy` | `github.com/im10furry/saas` |
 | GORM plugin and callback namespace | `gotenancy` / `gotenancy:*` | `saas` / `saas:*` |
 | Error text prefixes | `gotenancy/...` | `saas/...` |
 | Integration and chaos test variables | `GOTENANCY_*` | `SAAS_*` |

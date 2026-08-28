@@ -1,4 +1,4 @@
-module github.com/DarkInno/saas
+module github.com/im10furry/saas
 
 go 1.22.0
 

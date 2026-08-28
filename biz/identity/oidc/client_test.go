@@ -19,7 +19,7 @@ import (
 	"testing"
 	"time"
 
-	identity "github.com/DarkInno/saas/biz/identity"
+	identity "github.com/im10furry/saas/biz/identity"
 	"golang.org/x/oauth2"
 )
 

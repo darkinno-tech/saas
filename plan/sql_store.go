@@ -9,7 +9,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/DarkInno/saas/internal/sqlutil"
+	"github.com/im10furry/saas/internal/sqlutil"
 )
 
 const (

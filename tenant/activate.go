@@ -3,7 +3,7 @@ package tenant
 import (
 	"context"
 
-	"github.com/DarkInno/saas/core/types"
+	"github.com/im10furry/saas/core/types"
 )
 
 // Activate transitions a Pending tenant to Active.

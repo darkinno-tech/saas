@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/DarkInno/saas/feature"
+	"github.com/im10furry/saas/feature"
 )
 
 func TestFeatureSQLStoreMySQLIntegration(t *testing.T) {

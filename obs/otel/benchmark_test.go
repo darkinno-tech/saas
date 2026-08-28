@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	tenantctx "github.com/DarkInno/saas/core/context"
-	"github.com/DarkInno/saas/core/types"
+	tenantctx "github.com/im10furry/saas/core/context"
+	"github.com/im10furry/saas/core/types"
 )
 
 func BenchmarkSpanAttributes(b *testing.B) {

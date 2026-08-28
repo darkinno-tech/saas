@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/DarkInno/saas/biz/audit"
+	"github.com/im10furry/saas/biz/audit"
 )
 
 func TestAuditSQLStoreMySQLIntegration(t *testing.T) {

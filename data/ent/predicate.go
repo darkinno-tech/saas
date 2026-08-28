@@ -5,8 +5,8 @@ import (
 
 	"entgo.io/ent/dialect/sql"
 
-	"github.com/DarkInno/saas/core/types"
-	"github.com/DarkInno/saas/data"
+	"github.com/im10furry/saas/core/types"
+	"github.com/im10furry/saas/data"
 )
 
 // SelectorPredicate is an Ent custom predicate that mutates a SQL selector.

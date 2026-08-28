@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"log"
 
-	tenantctx "github.com/DarkInno/saas/core/context"
-	"github.com/DarkInno/saas/core/types"
-	enttenant "github.com/DarkInno/saas/data/ent"
+	tenantctx "github.com/im10furry/saas/core/context"
+	"github.com/im10furry/saas/core/types"
+	enttenant "github.com/im10furry/saas/data/ent"
 
 	"entgo.io/ent"
 )

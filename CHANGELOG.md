@@ -10,7 +10,7 @@ All notable changes to SaaS are documented in this file.
 
 ## v0.2.0 - 2026-07-17
 
-- Renamed GoTenancy to SaaS and moved the public Go module path to `github.com/DarkInno/saas`.
+- Renamed GoTenancy to SaaS and moved the public Go module path to `github.com/im10furry/saas`.
 - Flattened lifecycle modules from `saas/*` to top-level `tenant`, `plan`, `subscription`, `quota`, `feature`, and `onboarding` packages.
 - Renamed framework adapter package identifiers, webhook default headers, integration/chaos environment variables, the default outbound User-Agent, OpenTelemetry instrumentation scope, and CI coverage artifacts to SaaS equivalents.
 - Kept the Go `1.24.0` minimum and cache key protocol unchanged. See [the v0.2 migration guide](docs/migration-v0.2.md) for the complete upgrade mapping.
@@ -43,7 +43,7 @@ All notable changes to SaaS are documented in this file.
 
 ## v0.1.4 - 2026-07-09
 
-- Restored ORM, framework, gRPC, and example packages to the main Go module so `go get github.com/DarkInno/gotenancy` provides the full package surface.
+- Restored ORM, framework, gRPC, and example packages to the main Go module so `go get github.com/im10furry/gotenancy` provides the full package surface.
 - Reverted CI and lint verification to root-module checks while keeping SQLStore database integration tests outside the default gate.
 - Clarified that future extension capabilities, not the core adoption adapters, are the right split boundary.
 

@@ -1,6 +1,6 @@
 package user
 
-import "github.com/DarkInno/saas/core/types"
+import "github.com/im10furry/saas/core/types"
 
 // User is an account that may belong to many tenants.
 type User struct {

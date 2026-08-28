@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/DarkInno/saas/quota"
+	"github.com/im10furry/saas/quota"
 )
 
 func TestQuotaSQLStoreMySQLIntegration(t *testing.T) {

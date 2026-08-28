@@ -3,7 +3,7 @@ package tenantctx
 import (
 	"context"
 
-	"github.com/DarkInno/saas/core/types"
+	"github.com/im10furry/saas/core/types"
 )
 
 // Switch returns a child context scoped to tenant, leaving ctx unchanged.

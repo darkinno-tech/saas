@@ -11,10 +11,10 @@ import (
 	"entgo.io/ent/dialect"
 	"entgo.io/ent/dialect/sql"
 
-	"github.com/DarkInno/saas"
-	tenantctx "github.com/DarkInno/saas/core/context"
-	"github.com/DarkInno/saas/core/types"
-	"github.com/DarkInno/saas/data"
+	"github.com/im10furry/saas"
+	tenantctx "github.com/im10furry/saas/core/context"
+	"github.com/im10furry/saas/core/types"
+	"github.com/im10furry/saas/data"
 )
 
 func TestPredicateAddsTenantFilter(t *testing.T) {

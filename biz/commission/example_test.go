@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/DarkInno/saas/biz/commission"
-	"github.com/DarkInno/saas/core/types"
+	"github.com/im10furry/saas/biz/commission"
+	"github.com/im10furry/saas/core/types"
 )
 
 func ExampleService_RecordEvent() {

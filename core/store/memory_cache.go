@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/DarkInno/saas/core/types"
+	"github.com/im10furry/saas/core/types"
 )
 
 var _ Cache = (*MemoryCache)(nil)

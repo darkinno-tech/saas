@@ -3,7 +3,7 @@ package deployment
 import (
 	"context"
 
-	"github.com/DarkInno/saas/core/types"
+	"github.com/im10furry/saas/core/types"
 )
 
 // Resolver resolves a tenant to its active deployment unit.

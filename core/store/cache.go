@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/DarkInno/saas/core/types"
+	"github.com/im10furry/saas/core/types"
 )
 
 // Cache stores tenant metadata for faster lookups.

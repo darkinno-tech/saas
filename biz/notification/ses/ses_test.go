@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/DarkInno/saas/biz/notification"
-	"github.com/DarkInno/saas/core/types"
+	"github.com/im10furry/saas/biz/notification"
+	"github.com/im10furry/saas/core/types"
 	"github.com/aws/aws-sdk-go-v2/service/sesv2"
 	"github.com/aws/smithy-go"
 )

@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/DarkInno/saas/biz/identity/oidc"
+	"github.com/im10furry/saas/biz/identity/oidc"
 )
 
 func TestOIDCSQLLoginStoreMySQLIntegration(t *testing.T) {

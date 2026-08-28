@@ -7,10 +7,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/DarkInno/saas"
-	tenantctx "github.com/DarkInno/saas/core/context"
-	"github.com/DarkInno/saas/core/types"
-	"github.com/DarkInno/saas/data"
+	"github.com/im10furry/saas"
+	tenantctx "github.com/im10furry/saas/core/context"
+	"github.com/im10furry/saas/core/types"
+	"github.com/im10furry/saas/data"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

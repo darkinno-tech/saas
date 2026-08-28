@@ -6,9 +6,9 @@ import (
 	"reflect"
 	"testing"
 
-	tenantctx "github.com/DarkInno/saas/core/context"
-	"github.com/DarkInno/saas/core/types"
-	"github.com/DarkInno/saas/rpc"
+	tenantctx "github.com/im10furry/saas/core/context"
+	"github.com/im10furry/saas/core/types"
+	"github.com/im10furry/saas/rpc"
 )
 
 var (

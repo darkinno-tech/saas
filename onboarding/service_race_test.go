@@ -6,11 +6,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/DarkInno/saas/core/store"
-	"github.com/DarkInno/saas/core/types"
-	saasplan "github.com/DarkInno/saas/plan"
-	saassubscription "github.com/DarkInno/saas/subscription"
-	saastenant "github.com/DarkInno/saas/tenant"
+	"github.com/im10furry/saas/core/store"
+	"github.com/im10furry/saas/core/types"
+	saasplan "github.com/im10furry/saas/plan"
+	saassubscription "github.com/im10furry/saas/subscription"
+	saastenant "github.com/im10furry/saas/tenant"
 )
 
 func TestServiceOnboardResumesSubscriptionCreatedByConcurrentRequest(t *testing.T) {

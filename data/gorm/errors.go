@@ -3,7 +3,7 @@ package gormtenant
 import (
 	"errors"
 
-	"github.com/DarkInno/saas"
+	"github.com/im10furry/saas"
 
 	"gorm.io/gorm"
 )

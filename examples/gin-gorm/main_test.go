@@ -8,9 +8,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/DarkInno/saas/core/resolver"
-	"github.com/DarkInno/saas/core/store"
-	"github.com/DarkInno/saas/core/types"
+	"github.com/im10furry/saas/core/resolver"
+	"github.com/im10furry/saas/core/store"
+	"github.com/im10furry/saas/core/types"
 )
 
 func TestGinGORMExampleRouter(t *testing.T) {

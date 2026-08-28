@@ -6,9 +6,9 @@ import (
 	"errors"
 	"testing"
 
-	tenantctx "github.com/DarkInno/saas/core/context"
-	"github.com/DarkInno/saas/core/types"
-	"github.com/DarkInno/saas/data"
+	tenantctx "github.com/im10furry/saas/core/context"
+	"github.com/im10furry/saas/core/types"
+	"github.com/im10furry/saas/data"
 )
 
 func TestQueryAddsTenantFilter(t *testing.T) {

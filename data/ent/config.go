@@ -1,6 +1,6 @@
 package enttenant
 
-import "github.com/DarkInno/saas/data"
+import "github.com/im10furry/saas/data"
 
 // Config controls Ent tenant predicate generation.
 type Config struct {

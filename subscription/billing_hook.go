@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/DarkInno/saas/core/types"
+	"github.com/im10furry/saas/core/types"
 )
 
 // BillingEvent describes a subscription change for external billing systems.

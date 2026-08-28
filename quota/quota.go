@@ -1,6 +1,6 @@
 package quota
 
-import "github.com/DarkInno/saas/core/types"
+import "github.com/im10furry/saas/core/types"
 
 // Limit describes a tenant resource limit.
 type Limit struct {

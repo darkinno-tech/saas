@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/DarkInno/saas/core/types"
+	"github.com/im10furry/saas/core/types"
 )
 
 func TestMemoryServiceSubscribe(t *testing.T) {

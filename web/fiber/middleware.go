@@ -5,11 +5,11 @@ import (
 	"errors"
 	"net/http"
 
-	tenantctx "github.com/DarkInno/saas/core/context"
-	"github.com/DarkInno/saas/core/resolver"
-	"github.com/DarkInno/saas/core/store"
-	"github.com/DarkInno/saas/core/types"
-	"github.com/DarkInno/saas/deployment"
+	tenantctx "github.com/im10furry/saas/core/context"
+	"github.com/im10furry/saas/core/resolver"
+	"github.com/im10furry/saas/core/store"
+	"github.com/im10furry/saas/core/types"
+	"github.com/im10furry/saas/deployment"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/adaptor"

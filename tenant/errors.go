@@ -1,6 +1,6 @@
 package tenant
 
-import "github.com/DarkInno/saas"
+import "github.com/im10furry/saas"
 
 var (
 	// ErrInvalidState reports an invalid tenant lifecycle transition.
