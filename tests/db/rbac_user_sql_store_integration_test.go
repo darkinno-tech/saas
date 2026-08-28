@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/im10furry/saas/biz/rbac"
-	"github.com/im10furry/saas/biz/user"
-	"github.com/im10furry/saas/core/types"
+	"github.com/darkinno-tech/saas/biz/rbac"
+	"github.com/darkinno-tech/saas/biz/user"
+	"github.com/darkinno-tech/saas/core/types"
 )
 
 func TestRBACAndUserSQLStoreMySQLIntegration(t *testing.T) {

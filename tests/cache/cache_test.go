@@ -4,9 +4,9 @@ import (
 	"context"
 	"testing"
 
-	"github.com/im10furry/saas/cache"
-	tenantctx "github.com/im10furry/saas/core/context"
-	"github.com/im10furry/saas/core/types"
+	"github.com/darkinno-tech/saas/cache"
+	tenantctx "github.com/darkinno-tech/saas/core/context"
+	"github.com/darkinno-tech/saas/core/types"
 )
 
 func TestCacheIsolationAcrossTenants(t *testing.T) {

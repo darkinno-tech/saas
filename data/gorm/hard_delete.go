@@ -3,8 +3,8 @@ package gormtenant
 import (
 	"context"
 
-	"github.com/im10furry/saas"
-	tenantctx "github.com/im10furry/saas/core/context"
+	"github.com/darkinno-tech/saas"
+	tenantctx "github.com/darkinno-tech/saas/core/context"
 
 	"gorm.io/gorm"
 )

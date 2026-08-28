@@ -8,7 +8,7 @@ import (
 	"errors"
 	"time"
 
-	corecache "github.com/im10furry/saas/cache"
+	corecache "github.com/darkinno-tech/saas/cache"
 	goredis "github.com/redis/go-redis/v9"
 )
 

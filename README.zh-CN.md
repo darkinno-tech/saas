@@ -2,8 +2,8 @@
 
 [EN](README.md) | [中文](README.zh-CN.md)
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/im10furry/saas.svg)](https://pkg.go.dev/github.com/im10furry/saas)
-[![CI](https://github.com/im10furry/saas/actions/workflows/ci.yml/badge.svg)](https://github.com/im10furry/saas/actions/workflows/ci.yml)
+[![Go Reference](https://pkg.go.dev/badge/github.com/darkinno-tech/saas.svg)](https://pkg.go.dev/github.com/darkinno-tech/saas)
+[![CI](https://github.com/darkinno-tech/saas/actions/workflows/ci.yml/badge.svg)](https://github.com/darkinno-tech/saas/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
 SaaS 是一个面向生产环境、与 ORM 无关的 Go 多租户应用工具包，适用于构建共享数据库、共享 Schema 隔离的 SaaS 产品。它以强制 `tenant_id` 隔离边界为核心，并提供运营租户所需的 SaaS 生命周期能力。
@@ -31,8 +31,8 @@ SaaS 不实现按租户独立数据库、独立 Schema 或混合隔离；它不�
 ## 从 GoTenancy 迁移
 
 SaaS v0.2.0 是一次破坏性改名。Go 模块路径现在是
-`github.com/im10furry/saas`，生命周期包也提升为顶级路径，例如
-`github.com/im10furry/saas/tenant`。已有应用升级前请阅读
+`github.com/darkinno-tech/saas`，生命周期包也提升为顶级路径，例如
+`github.com/darkinno-tech/saas/tenant`。已有应用升级前请阅读
 [v0.2 迁移指南](docs/migration-v0.2.zh-CN.md)。
 
 ## 要求
@@ -47,10 +47,10 @@ SaaS v0.2.0 是一次破坏性改名。Go 模块路径现在是
 ```bash
 # 仅核心工具包（Go 1.22+）。
 go mod init your-app
-go get github.com/im10furry/saas@v0.3.0
+go get github.com/darkinno-tech/saas@v0.3.0
 
 # 仅添加应用实际使用的集成；这里以 GORM 为例。
-go get github.com/im10furry/saas/data/gorm@v0.3.0
+go get github.com/darkinno-tech/saas/data/gorm@v0.3.0
 ```
 
 根模块不会下载可选适配器。全部可安装模块及其 Go 版本要求请参阅
@@ -68,10 +68,10 @@ import (
 	"fmt"
 	"log"
 
-	tenantctx "github.com/im10furry/saas/core/context"
-	"github.com/im10furry/saas/core/store"
-	"github.com/im10furry/saas/core/types"
-	gormtenant "github.com/im10furry/saas/data/gorm"
+	tenantctx "github.com/darkinno-tech/saas/core/context"
+	"github.com/darkinno-tech/saas/core/store"
+	"github.com/darkinno-tech/saas/core/types"
+	gormtenant "github.com/darkinno-tech/saas/data/gorm"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

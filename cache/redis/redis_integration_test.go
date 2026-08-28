@@ -7,9 +7,9 @@ import (
 	"testing"
 	"time"
 
-	corecache "github.com/im10furry/saas/cache"
-	tenantctx "github.com/im10furry/saas/core/context"
-	"github.com/im10furry/saas/core/types"
+	corecache "github.com/darkinno-tech/saas/cache"
+	tenantctx "github.com/darkinno-tech/saas/core/context"
+	"github.com/darkinno-tech/saas/core/types"
 	goredis "github.com/redis/go-redis/v9"
 )
 

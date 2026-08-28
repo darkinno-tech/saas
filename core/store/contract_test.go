@@ -3,8 +3,8 @@ package store_test
 import (
 	"testing"
 
-	"github.com/im10furry/saas/core/store"
-	"github.com/im10furry/saas/internal/testcontract"
+	"github.com/darkinno-tech/saas/core/store"
+	"github.com/darkinno-tech/saas/internal/testcontract"
 )
 
 func TestMemoryStoreContract(t *testing.T) {

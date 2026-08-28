@@ -6,9 +6,9 @@ import (
 	"reflect"
 	"testing"
 
-	tenantctx "github.com/im10furry/saas/core/context"
-	"github.com/im10furry/saas/core/types"
-	"github.com/im10furry/saas/data"
+	tenantctx "github.com/darkinno-tech/saas/core/context"
+	"github.com/darkinno-tech/saas/core/types"
+	"github.com/darkinno-tech/saas/data"
 
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"

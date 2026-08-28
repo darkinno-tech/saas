@@ -3,7 +3,7 @@ package tenant
 import (
 	"context"
 
-	"github.com/im10furry/saas/core/types"
+	"github.com/darkinno-tech/saas/core/types"
 )
 
 // Service manages tenant lifecycle operations.

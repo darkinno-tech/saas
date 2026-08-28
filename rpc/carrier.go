@@ -3,8 +3,8 @@ package rpc
 import (
 	"context"
 
-	tenantctx "github.com/im10furry/saas/core/context"
-	"github.com/im10furry/saas/core/types"
+	tenantctx "github.com/darkinno-tech/saas/core/context"
+	"github.com/darkinno-tech/saas/core/types"
 )
 
 const DefaultTenantMetadataKey = "x-tenant-id"

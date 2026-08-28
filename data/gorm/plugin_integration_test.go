@@ -8,9 +8,9 @@ import (
 	"testing"
 	"time"
 
-	tenantctx "github.com/im10furry/saas/core/context"
-	"github.com/im10furry/saas/core/types"
-	"github.com/im10furry/saas/data"
+	tenantctx "github.com/darkinno-tech/saas/core/context"
+	"github.com/darkinno-tech/saas/core/types"
+	"github.com/darkinno-tech/saas/data"
 
 	_ "github.com/go-sql-driver/mysql"
 	"gorm.io/driver/mysql"

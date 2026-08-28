@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/im10furry/saas/core/types"
-	"github.com/im10furry/saas/deployment"
+	"github.com/darkinno-tech/saas/core/types"
+	"github.com/darkinno-tech/saas/deployment"
 )
 
 func TestDeploymentSQLStoreMySQLIntegration(t *testing.T) {

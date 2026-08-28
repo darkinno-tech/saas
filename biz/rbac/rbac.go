@@ -1,6 +1,6 @@
 package rbac
 
-import "github.com/im10furry/saas/core/types"
+import "github.com/darkinno-tech/saas/core/types"
 
 type Permission string
 

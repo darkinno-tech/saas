@@ -1,9 +1,9 @@
-module github.com/im10furry/saas/web/gin
+module github.com/darkinno-tech/saas/web/gin
 
 go 1.22.0
 
 require (
-	github.com/im10furry/saas v0.3.0
+	github.com/darkinno-tech/saas v0.3.0
 	github.com/gin-gonic/gin v1.10.1
 )
 
@@ -36,4 +36,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-replace github.com/im10furry/saas => ../..
+replace github.com/darkinno-tech/saas => ../..

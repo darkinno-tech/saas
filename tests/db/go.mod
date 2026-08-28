@@ -1,10 +1,10 @@
-module github.com/im10furry/saas/tests/db
+module github.com/darkinno-tech/saas/tests/db
 
 go 1.24.0
 
 require (
-	github.com/im10furry/saas v0.3.0
-	github.com/im10furry/saas/biz/identity/oidc v0.3.0
+	github.com/darkinno-tech/saas v0.3.0
+	github.com/darkinno-tech/saas/biz/identity/oidc v0.3.0
 	github.com/go-sql-driver/mysql v1.8.1
 	github.com/lib/pq v1.10.9
 )
@@ -16,6 +16,6 @@ require (
 	golang.org/x/oauth2 v0.30.0 // indirect
 )
 
-replace github.com/im10furry/saas => ../..
+replace github.com/darkinno-tech/saas => ../..
 
-replace github.com/im10furry/saas/biz/identity/oidc => ../../biz/identity/oidc
+replace github.com/darkinno-tech/saas/biz/identity/oidc => ../../biz/identity/oidc

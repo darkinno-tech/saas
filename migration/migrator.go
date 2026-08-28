@@ -1,6 +1,6 @@
 package migration
 
-import "github.com/im10furry/saas/core/types"
+import "github.com/darkinno-tech/saas/core/types"
 
 // Migrator defines tenant-aware table migration planning operations.
 type Migrator interface {

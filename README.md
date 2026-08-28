@@ -2,8 +2,8 @@
 
 [EN](README.md) | [中文](README.zh-CN.md)
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/im10furry/saas.svg)](https://pkg.go.dev/github.com/im10furry/saas)
-[![CI](https://github.com/im10furry/saas/actions/workflows/ci.yml/badge.svg)](https://github.com/im10furry/saas/actions/workflows/ci.yml)
+[![Go Reference](https://pkg.go.dev/badge/github.com/darkinno-tech/saas.svg)](https://pkg.go.dev/github.com/darkinno-tech/saas)
+[![CI](https://github.com/darkinno-tech/saas/actions/workflows/ci.yml/badge.svg)](https://github.com/darkinno-tech/saas/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
 SaaS is a production-oriented, ORM-independent Go toolkit for shared-database, shared-schema multi-tenant products. It makes the required `tenant_id` isolation boundary explicit and pairs it with the SaaS lifecycle components needed to operate tenants.
@@ -35,8 +35,8 @@ For logical placement and regional-residency integration, see
 ## Migration from GoTenancy
 
 SaaS v0.2.0 is a breaking rename. The module path is now
-`github.com/im10furry/saas`, and lifecycle packages are top-level paths such as
-`github.com/im10furry/saas/tenant`. See the [v0.2 migration guide](docs/migration-v0.2.md)
+`github.com/darkinno-tech/saas`, and lifecycle packages are top-level paths such as
+`github.com/darkinno-tech/saas/tenant`. See the [v0.2 migration guide](docs/migration-v0.2.md)
 before upgrading an existing application.
 
 ## Requirements
@@ -52,10 +52,10 @@ See [docs/modules.md](docs/modules.md) for the complete compatibility matrix.
 ```bash
 # Core toolkit only (Go 1.22+).
 go mod init your-app
-go get github.com/im10furry/saas@v0.3.0
+go get github.com/darkinno-tech/saas@v0.3.0
 
 # Add only the integration your application uses; this example adds GORM.
-go get github.com/im10furry/saas/data/gorm@v0.3.0
+go get github.com/darkinno-tech/saas/data/gorm@v0.3.0
 ```
 
 The root module does not download optional adapters. See
@@ -76,10 +76,10 @@ import (
 	"fmt"
 	"log"
 
-	tenantctx "github.com/im10furry/saas/core/context"
-	"github.com/im10furry/saas/core/store"
-	"github.com/im10furry/saas/core/types"
-	gormtenant "github.com/im10furry/saas/data/gorm"
+	tenantctx "github.com/darkinno-tech/saas/core/context"
+	"github.com/darkinno-tech/saas/core/store"
+	"github.com/darkinno-tech/saas/core/types"
+	gormtenant "github.com/darkinno-tech/saas/data/gorm"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

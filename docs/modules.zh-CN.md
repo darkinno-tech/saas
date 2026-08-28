@@ -6,10 +6,10 @@ SaaS v0.3.0 将无外部集成依赖的租户工具包，与仅部分应用需�
 
 ## 核心模块
 
-根模块为 `github.com/im10furry/saas`，支持 Go `1.22+`。它包含租户边界、生命周期服务、`database/sql` 与 sqlx 辅助能力、`net/http` 中间件、内存缓存、`slog` 辅助函数，以及不依赖外部提供商 SDK 的业务模块。
+根模块为 `github.com/darkinno-tech/saas`，支持 Go `1.22+`。它包含租户边界、生命周期服务、`database/sql` 与 sqlx 辅助能力、`net/http` 中间件、内存缓存、`slog` 辅助函数，以及不依赖外部提供商 SDK 的业务模块。
 
 ```bash
-go get github.com/im10furry/saas@v0.3.0
+go get github.com/darkinno-tech/saas@v0.3.0
 ```
 
 ### 宿主集成的领域包
@@ -19,8 +19,8 @@ go get github.com/im10furry/saas@v0.3.0
 根模块和实际选用的可选模块应保持在同一个 SaaS 发布版本。例如，GORM 应用只需安装根模块和 GORM 适配器：
 
 ```bash
-go get github.com/im10furry/saas@v0.3.0
-go get github.com/im10furry/saas/data/gorm@v0.3.0
+go get github.com/darkinno-tech/saas@v0.3.0
+go get github.com/darkinno-tech/saas/data/gorm@v0.3.0
 ```
 
 ## 可选集成模块
@@ -29,23 +29,23 @@ go get github.com/im10furry/saas/data/gorm@v0.3.0
 
 | 模块路径 | 最低 Go | 用途 |
 |---|---:|---|
-| `github.com/im10furry/saas/data/gorm` | 1.22 | GORM v2 租户插件与防护 |
-| `github.com/im10furry/saas/web/gin` | 1.22 | Gin 中间件与防护 |
-| `github.com/im10furry/saas/web/fiber` | 1.22 | Fiber 中间件与防护 |
-| `github.com/im10furry/saas/web/kratos` | 1.22 | Kratos 中间件与防护 |
-| `github.com/im10furry/saas/data/ent` | 1.23 | Ent 谓词、过滤器与 Hook |
-| `github.com/im10furry/saas/web/echo` | 1.23 | Echo 中间件与防护 |
-| `github.com/im10furry/saas/rpc/grpc` | 1.23 | gRPC unary 与 stream 拦截器 |
-| `github.com/im10furry/saas/obs/otel` | 1.23 | OpenTelemetry 链路追踪辅助函数 |
-| `github.com/im10furry/saas/biz/notification/ses` | 1.23 | Amazon SES v2 通知器 |
-| `github.com/im10furry/saas/cache/redis` | 1.24 | `go-redis/v9` 缓存适配器 |
-| `github.com/im10furry/saas/biz/identity/oidc` | 1.24 | OIDC 授权码流程桥接 |
+| `github.com/darkinno-tech/saas/data/gorm` | 1.22 | GORM v2 租户插件与防护 |
+| `github.com/darkinno-tech/saas/web/gin` | 1.22 | Gin 中间件与防护 |
+| `github.com/darkinno-tech/saas/web/fiber` | 1.22 | Fiber 中间件与防护 |
+| `github.com/darkinno-tech/saas/web/kratos` | 1.22 | Kratos 中间件与防护 |
+| `github.com/darkinno-tech/saas/data/ent` | 1.23 | Ent 谓词、过滤器与 Hook |
+| `github.com/darkinno-tech/saas/web/echo` | 1.23 | Echo 中间件与防护 |
+| `github.com/darkinno-tech/saas/rpc/grpc` | 1.23 | gRPC unary 与 stream 拦截器 |
+| `github.com/darkinno-tech/saas/obs/otel` | 1.23 | OpenTelemetry 链路追踪辅助函数 |
+| `github.com/darkinno-tech/saas/biz/notification/ses` | 1.23 | Amazon SES v2 通知器 |
+| `github.com/darkinno-tech/saas/cache/redis` | 1.24 | `go-redis/v9` 缓存适配器 |
+| `github.com/darkinno-tech/saas/biz/identity/oidc` | 1.24 | OIDC 授权码流程桥接 |
 
 可通过 `go get <模块路径>@v0.3.0` 安装任一可选模块，例如：
 
 ```bash
-go get github.com/im10furry/saas/cache/redis@v0.3.0
-go get github.com/im10furry/saas/biz/identity/oidc@v0.3.0
+go get github.com/darkinno-tech/saas/cache/redis@v0.3.0
+go get github.com/darkinno-tech/saas/biz/identity/oidc@v0.3.0
 ```
 
 这是有意设计的兼容性隔离：使用 Go 1.22 或 1.23 的应用可以接入核心工具包，而不会被迫下载或编译需要 Go 1.24 的 Redis、OIDC 依赖链。
@@ -56,10 +56,10 @@ go get github.com/im10furry/saas/biz/identity/oidc@v0.3.0
 
 | 示例模块 | 最低 Go | 命令 |
 |---|---:|---|
-| `github.com/im10furry/saas/examples/quickstart` | 1.22 | `go -C examples/quickstart run .` |
-| `github.com/im10furry/saas/examples/gin-gorm` | 1.22 | `go -C examples/gin-gorm run .` |
-| `github.com/im10furry/saas/examples/grpc` | 1.23 | `go -C examples/grpc run .` |
-| `github.com/im10furry/saas/examples/ent` | 1.23 | `go -C examples/ent run .` |
+| `github.com/darkinno-tech/saas/examples/quickstart` | 1.22 | `go -C examples/quickstart run .` |
+| `github.com/darkinno-tech/saas/examples/gin-gorm` | 1.22 | `go -C examples/gin-gorm run .` |
+| `github.com/darkinno-tech/saas/examples/grpc` | 1.23 | `go -C examples/grpc run .` |
+| `github.com/darkinno-tech/saas/examples/ent` | 1.23 | `go -C examples/ent run .` |
 
 ## 发布与 tag 规则
 
@@ -67,9 +67,9 @@ go get github.com/im10furry/saas/biz/identity/oidc@v0.3.0
 
 | 模块 | v0.3.0 对应发布 tag |
 |---|---|
-| 根模块 `github.com/im10furry/saas` | `v0.3.0` |
-| `github.com/im10furry/saas/data/gorm` | `data/gorm/v0.3.0` |
-| `github.com/im10furry/saas/cache/redis` | `cache/redis/v0.3.0` |
+| 根模块 `github.com/darkinno-tech/saas` | `v0.3.0` |
+| `github.com/darkinno-tech/saas/data/gorm` | `data/gorm/v0.3.0` |
+| `github.com/darkinno-tech/saas/cache/redis` | `cache/redis/v0.3.0` |
 | 位于 `<path>` 的任意其他嵌套模块 | `<path>/v0.3.0` |
 
 同一规则也适用于示例模块，例如 `examples/quickstart/v0.3.0`。应从同一个发布提交创建根模块 tag 和所有已变更嵌套模块的 tag，这样 `go get` 才能解析出一致的模块集合。
@@ -80,21 +80,21 @@ go get github.com/im10furry/saas/biz/identity/oidc@v0.3.0
 
 | v0.3.0 前 | v0.3.0 后 |
 |---|---|
-| 从 `github.com/im10furry/saas/cache` 使用 `cache.NewRedis`、`cache.NewRedisFromOptions`、`cache.NewRedisFromClusterOptions`、`cache.NewRedisFromURL` | 导入 `github.com/im10furry/saas/cache/redis`；使用 `redis.New`、`redis.NewFromOptions`、`redis.NewFromClusterOptions`、`redis.NewFromURL`。 |
-| 从 `github.com/im10furry/saas/obs` 使用 `obs.NewTracer`、`obs.SpanAttributes`、`obs.AddSpanAttributes`、`obs.StartSpan`、`obs.RecordSpanError` | 导入 `github.com/im10furry/saas/obs/otel`；通过 `otel` 包使用同名辅助函数。 |
-| `notification.NewSESNotifier` 与 `notification.SES*` 类型 | 导入 `github.com/im10furry/saas/biz/notification/ses`；使用 `ses.NewSESNotifier` 和 `ses.SES*` 类型。 |
-| 由根模块携带的 OIDC 集成 | 显式添加 `github.com/im10furry/saas/biz/identity/oidc@v0.3.0`。包导入路径和包名仍为 `oidc`；`biz/identity` 仍是核心的认证后身份映射包。 |
+| 从 `github.com/darkinno-tech/saas/cache` 使用 `cache.NewRedis`、`cache.NewRedisFromOptions`、`cache.NewRedisFromClusterOptions`、`cache.NewRedisFromURL` | 导入 `github.com/darkinno-tech/saas/cache/redis`；使用 `redis.New`、`redis.NewFromOptions`、`redis.NewFromClusterOptions`、`redis.NewFromURL`。 |
+| 从 `github.com/darkinno-tech/saas/obs` 使用 `obs.NewTracer`、`obs.SpanAttributes`、`obs.AddSpanAttributes`、`obs.StartSpan`、`obs.RecordSpanError` | 导入 `github.com/darkinno-tech/saas/obs/otel`；通过 `otel` 包使用同名辅助函数。 |
+| `notification.NewSESNotifier` 与 `notification.SES*` 类型 | 导入 `github.com/darkinno-tech/saas/biz/notification/ses`；使用 `ses.NewSESNotifier` 和 `ses.SES*` 类型。 |
+| 由根模块携带的 OIDC 集成 | 显式添加 `github.com/darkinno-tech/saas/biz/identity/oidc@v0.3.0`。包导入路径和包名仍为 `oidc`；`biz/identity` 仍是核心的认证后身份映射包。 |
 
 例如，Redis 适配器的导入方式可按以下方式迁移：
 
 ```go
 // 迁移前
-import "github.com/im10furry/saas/cache"
+import "github.com/darkinno-tech/saas/cache"
 
 client, err := cache.NewRedis(redisClient)
 
 // 迁移后
-import cacheredis "github.com/im10furry/saas/cache/redis"
+import cacheredis "github.com/darkinno-tech/saas/cache/redis"
 
 client, err := cacheredis.New(redisClient)
 ```

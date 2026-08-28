@@ -6,7 +6,7 @@ import (
 	"errors"
 	"reflect"
 
-	obs "github.com/im10furry/saas/obs"
+	obs "github.com/darkinno-tech/saas/obs"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/codes"
@@ -15,7 +15,7 @@ import (
 
 const (
 	// InstrumentationName is the OpenTelemetry instrumentation scope name for SaaS.
-	InstrumentationName = "github.com/im10furry/saas"
+	InstrumentationName = "github.com/darkinno-tech/saas"
 
 	defaultErrorDescription = "operation failed"
 

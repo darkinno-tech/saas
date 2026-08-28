@@ -3,7 +3,7 @@ package resolver
 import (
 	"net/http"
 
-	"github.com/im10furry/saas/core/types"
+	"github.com/darkinno-tech/saas/core/types"
 )
 
 // Resolver resolves a tenant identifier from an HTTP request.

@@ -4,7 +4,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/im10furry/saas/core/types"
+	"github.com/darkinno-tech/saas/core/types"
 )
 
 // CommissionEvent is a tenant-scoped source event eligible for a commission

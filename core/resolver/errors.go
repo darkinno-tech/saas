@@ -3,7 +3,7 @@ package resolver
 import (
 	"errors"
 
-	"github.com/im10furry/saas"
+	"github.com/darkinno-tech/saas"
 )
 
 var (

@@ -1,11 +1,11 @@
-module github.com/im10furry/saas/examples/gin-gorm
+module github.com/darkinno-tech/saas/examples/gin-gorm
 
 go 1.22.0
 
 require (
-	github.com/im10furry/saas v0.3.0
-	github.com/im10furry/saas/data/gorm v0.3.0
-	github.com/im10furry/saas/web/gin v0.3.0
+	github.com/darkinno-tech/saas v0.3.0
+	github.com/darkinno-tech/saas/data/gorm v0.3.0
+	github.com/darkinno-tech/saas/web/gin v0.3.0
 	github.com/gin-gonic/gin v1.10.1
 	gorm.io/driver/mysql v1.6.0
 	gorm.io/gorm v1.31.2
@@ -44,8 +44,8 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-replace github.com/im10furry/saas => ../..
+replace github.com/darkinno-tech/saas => ../..
 
-replace github.com/im10furry/saas/data/gorm => ../../data/gorm
+replace github.com/darkinno-tech/saas/data/gorm => ../../data/gorm
 
-replace github.com/im10furry/saas/web/gin => ../../web/gin
+replace github.com/darkinno-tech/saas/web/gin => ../../web/gin

@@ -1,9 +1,9 @@
-module github.com/im10furry/saas/web/kratos
+module github.com/darkinno-tech/saas/web/kratos
 
 go 1.22.0
 
 require (
-	github.com/im10furry/saas v0.3.0
+	github.com/darkinno-tech/saas v0.3.0
 	github.com/go-kratos/kratos/v2 v2.9.2
 )
 
@@ -21,4 +21,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-replace github.com/im10furry/saas => ../..
+replace github.com/darkinno-tech/saas => ../..

@@ -3,11 +3,11 @@ package grpcsaas
 import (
 	"context"
 
-	tenantctx "github.com/im10furry/saas/core/context"
-	"github.com/im10furry/saas/core/store"
-	"github.com/im10furry/saas/core/types"
-	"github.com/im10furry/saas/deployment"
-	baserpc "github.com/im10furry/saas/rpc"
+	tenantctx "github.com/darkinno-tech/saas/core/context"
+	"github.com/darkinno-tech/saas/core/store"
+	"github.com/darkinno-tech/saas/core/types"
+	"github.com/darkinno-tech/saas/deployment"
+	baserpc "github.com/darkinno-tech/saas/rpc"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"

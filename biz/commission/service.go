@@ -7,7 +7,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/im10furry/saas/core/types"
+	"github.com/darkinno-tech/saas/core/types"
 )
 
 // Permission identifies a host authorization decision required by Service.

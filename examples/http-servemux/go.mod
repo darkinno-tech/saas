@@ -1,10 +1,10 @@
-module github.com/im10furry/saas/examples/http-servemux
+module github.com/darkinno-tech/saas/examples/http-servemux
 
 go 1.24.0
 
 require (
-	github.com/im10furry/saas v0.3.0
-	github.com/im10furry/saas/data/gorm v0.3.0
+	github.com/darkinno-tech/saas v0.3.0
+	github.com/darkinno-tech/saas/data/gorm v0.3.0
 	gorm.io/driver/mysql v1.6.0
 	gorm.io/gorm v1.31.2
 )
@@ -17,6 +17,6 @@ require (
 	golang.org/x/text v0.26.0 // indirect
 )
 
-replace github.com/im10furry/saas => ../..
+replace github.com/darkinno-tech/saas => ../..
 
-replace github.com/im10furry/saas/data/gorm => ../../data/gorm
+replace github.com/darkinno-tech/saas/data/gorm => ../../data/gorm

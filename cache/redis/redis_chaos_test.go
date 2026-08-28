@@ -10,10 +10,10 @@ import (
 	"testing"
 	"time"
 
-	corecache "github.com/im10furry/saas/cache"
-	tenantctx "github.com/im10furry/saas/core/context"
-	"github.com/im10furry/saas/core/types"
-	"github.com/im10furry/saas/internal/testtoxiproxy"
+	corecache "github.com/darkinno-tech/saas/cache"
+	tenantctx "github.com/darkinno-tech/saas/core/context"
+	"github.com/darkinno-tech/saas/core/types"
+	"github.com/darkinno-tech/saas/internal/testtoxiproxy"
 	goredis "github.com/redis/go-redis/v9"
 )
 

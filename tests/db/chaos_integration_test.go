@@ -12,10 +12,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/im10furry/saas/core/store"
-	"github.com/im10furry/saas/core/types"
-	"github.com/im10furry/saas/internal/testcontract"
-	"github.com/im10furry/saas/internal/testtoxiproxy"
+	"github.com/darkinno-tech/saas/core/store"
+	"github.com/darkinno-tech/saas/core/types"
+	"github.com/darkinno-tech/saas/internal/testcontract"
+	"github.com/darkinno-tech/saas/internal/testtoxiproxy"
 
 	_ "github.com/go-sql-driver/mysql"
 	_ "github.com/lib/pq"

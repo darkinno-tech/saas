@@ -3,7 +3,7 @@ package commission
 import (
 	"fmt"
 
-	"github.com/im10furry/saas/internal/sqlutil"
+	"github.com/darkinno-tech/saas/internal/sqlutil"
 )
 
 // Default SQL table names. SQLStore deliberately does not create or migrate

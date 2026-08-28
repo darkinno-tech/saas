@@ -1,6 +1,6 @@
 package tenant
 
-import "github.com/im10furry/saas/core/types"
+import "github.com/darkinno-tech/saas/core/types"
 
 var (
 	activateTransitions = map[types.TenantStatus]types.TenantStatus{

@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/im10furry/saas/core/store"
-	"github.com/im10furry/saas/internal/testcontract"
+	"github.com/darkinno-tech/saas/core/store"
+	"github.com/darkinno-tech/saas/internal/testcontract"
 
 	_ "github.com/go-sql-driver/mysql"
 	_ "github.com/lib/pq"

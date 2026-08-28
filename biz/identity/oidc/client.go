@@ -12,8 +12,8 @@ import (
 	"slices"
 	"strings"
 
-	identity "github.com/im10furry/saas/biz/identity"
-	"github.com/im10furry/saas/core/types"
+	identity "github.com/darkinno-tech/saas/biz/identity"
+	"github.com/darkinno-tech/saas/core/types"
 	oidclib "github.com/coreos/go-oidc/v3/oidc"
 	"golang.org/x/oauth2"
 )

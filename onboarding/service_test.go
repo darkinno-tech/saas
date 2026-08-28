@@ -6,16 +6,16 @@ import (
 	"testing"
 	"time"
 
-	"github.com/im10furry/saas/biz/audit"
-	"github.com/im10furry/saas/biz/notification"
-	"github.com/im10furry/saas/core/store"
-	"github.com/im10furry/saas/core/types"
-	"github.com/im10furry/saas/deployment"
-	saasfeature "github.com/im10furry/saas/feature"
-	saasplan "github.com/im10furry/saas/plan"
-	saasquota "github.com/im10furry/saas/quota"
-	saassubscription "github.com/im10furry/saas/subscription"
-	saastenant "github.com/im10furry/saas/tenant"
+	"github.com/darkinno-tech/saas/biz/audit"
+	"github.com/darkinno-tech/saas/biz/notification"
+	"github.com/darkinno-tech/saas/core/store"
+	"github.com/darkinno-tech/saas/core/types"
+	"github.com/darkinno-tech/saas/deployment"
+	saasfeature "github.com/darkinno-tech/saas/feature"
+	saasplan "github.com/darkinno-tech/saas/plan"
+	saasquota "github.com/darkinno-tech/saas/quota"
+	saassubscription "github.com/darkinno-tech/saas/subscription"
+	saastenant "github.com/darkinno-tech/saas/tenant"
 )
 
 func TestServiceOnboardInitializesSaaSModules(t *testing.T) {

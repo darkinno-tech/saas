@@ -7,7 +7,7 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/im10furry/saas/biz/user"
+	"github.com/darkinno-tech/saas/biz/user"
 )
 
 type Service struct {

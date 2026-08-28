@@ -3,7 +3,7 @@ package notification
 import (
 	"strings"
 
-	"github.com/im10furry/saas/core/types"
+	"github.com/darkinno-tech/saas/core/types"
 )
 
 type Message struct {

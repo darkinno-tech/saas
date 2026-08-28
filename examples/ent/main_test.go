@@ -9,9 +9,9 @@ import (
 	"entgo.io/ent/dialect"
 	entsql "entgo.io/ent/dialect/sql"
 
-	tenantctx "github.com/im10furry/saas/core/context"
-	"github.com/im10furry/saas/core/types"
-	enttenant "github.com/im10furry/saas/data/ent"
+	tenantctx "github.com/darkinno-tech/saas/core/context"
+	"github.com/darkinno-tech/saas/core/types"
+	enttenant "github.com/darkinno-tech/saas/data/ent"
 )
 
 func TestEntExampleFakesApplyTenantRulesLikeGeneratedBuilders(t *testing.T) {

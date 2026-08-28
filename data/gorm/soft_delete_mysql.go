@@ -3,7 +3,7 @@ package gormtenant
 import (
 	"fmt"
 
-	"github.com/im10furry/saas/data"
+	"github.com/darkinno-tech/saas/data"
 )
 
 const (

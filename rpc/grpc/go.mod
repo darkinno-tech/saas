@@ -1,9 +1,9 @@
-module github.com/im10furry/saas/rpc/grpc
+module github.com/darkinno-tech/saas/rpc/grpc
 
 go 1.23.0
 
 require (
-	github.com/im10furry/saas v0.3.0
+	github.com/darkinno-tech/saas v0.3.0
 	google.golang.org/grpc v1.75.1
 )
 
@@ -15,4 +15,4 @@ require (
 	google.golang.org/protobuf v1.36.6 // indirect
 )
 
-replace github.com/im10furry/saas => ../..
+replace github.com/darkinno-tech/saas => ../..

@@ -7,9 +7,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/im10furry/saas/core/resolver"
-	"github.com/im10furry/saas/core/store"
-	"github.com/im10furry/saas/core/types"
+	"github.com/darkinno-tech/saas/core/resolver"
+	"github.com/darkinno-tech/saas/core/store"
+	"github.com/darkinno-tech/saas/core/types"
 )
 
 func TestHTTPServeMuxExampleHandler(t *testing.T) {

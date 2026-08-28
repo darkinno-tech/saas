@@ -7,8 +7,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/im10furry/saas/core/types"
-	"github.com/im10furry/saas/internal/sqlutil"
+	"github.com/darkinno-tech/saas/core/types"
+	"github.com/darkinno-tech/saas/internal/sqlutil"
 )
 
 const (

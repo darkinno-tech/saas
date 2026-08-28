@@ -8,13 +8,13 @@ SaaS v0.2.0 将原 GoTenancy 模块改名。这是一次破坏性发布：仓库
 
 | 旧路径 | 新路径 |
 |---|---|
-| `github.com/im10furry/gotenancy` | `github.com/im10furry/saas` |
-| `github.com/im10furry/gotenancy/saas/tenant` | `github.com/im10furry/saas/tenant` |
-| `github.com/im10furry/gotenancy/saas/plan` | `github.com/im10furry/saas/plan` |
-| `github.com/im10furry/gotenancy/saas/subscription` | `github.com/im10furry/saas/subscription` |
-| `github.com/im10furry/gotenancy/saas/quota` | `github.com/im10furry/saas/quota` |
-| `github.com/im10furry/gotenancy/saas/feature` | `github.com/im10furry/saas/feature` |
-| `github.com/im10furry/gotenancy/saas/onboarding` | `github.com/im10furry/saas/onboarding` |
+| `github.com/darkinno-tech/gotenancy` | `github.com/darkinno-tech/saas` |
+| `github.com/darkinno-tech/gotenancy/saas/tenant` | `github.com/darkinno-tech/saas/tenant` |
+| `github.com/darkinno-tech/gotenancy/saas/plan` | `github.com/darkinno-tech/saas/plan` |
+| `github.com/darkinno-tech/gotenancy/saas/subscription` | `github.com/darkinno-tech/saas/subscription` |
+| `github.com/darkinno-tech/gotenancy/saas/quota` | `github.com/darkinno-tech/saas/quota` |
+| `github.com/darkinno-tech/gotenancy/saas/feature` | `github.com/darkinno-tech/saas/feature` |
+| `github.com/darkinno-tech/gotenancy/saas/onboarding` | `github.com/darkinno-tech/saas/onboarding` |
 
 根包标识从 `gotenancy` 改为 `saas`。框架适配器的包标识同样改名：
 `gingotenancy`、`echogotenancy`、`fibergotenancy`、`httpgotenancy`、
@@ -22,7 +22,7 @@ SaaS v0.2.0 将原 GoTenancy 模块改名。这是一次破坏性发布：仓库
 `fibersaas`、`httpsaas`、`kratossaas`、`grpcsaas`。
 
 ```bash
-go get github.com/im10furry/saas@v0.2.0
+go get github.com/darkinno-tech/saas@v0.2.0
 go mod tidy
 ```
 
@@ -38,7 +38,7 @@ v0.2.0 之前的已发布版本仍保留旧模块路径。请原子性地更新�
 | Webhook 租户头 | `X-GoTenancy-Tenant-ID` | `X-SaaS-Tenant-ID` |
 | Webhook 渠道头 | `X-GoTenancy-Channel` | `X-SaaS-Channel` |
 | 默认出站 User-Agent | `gotenancy` | `saas` |
-| OpenTelemetry scope | `github.com/im10furry/gotenancy` | `github.com/im10furry/saas` |
+| OpenTelemetry scope | `github.com/darkinno-tech/gotenancy` | `github.com/darkinno-tech/saas` |
 | GORM 插件与回调命名空间 | `gotenancy` / `gotenancy:*` | `saas` / `saas:*` |
 | 错误文本前缀 | `gotenancy/...` | `saas/...` |
 | 集成与混沌测试环境变量 | `GOTENANCY_*` | `SAAS_*` |

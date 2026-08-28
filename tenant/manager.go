@@ -6,9 +6,9 @@ import (
 	"maps"
 	"sync"
 
-	tenantctx "github.com/im10furry/saas/core/context"
-	"github.com/im10furry/saas/core/store"
-	"github.com/im10furry/saas/core/types"
+	tenantctx "github.com/darkinno-tech/saas/core/context"
+	"github.com/darkinno-tech/saas/core/store"
+	"github.com/darkinno-tech/saas/core/types"
 )
 
 var _ Service = (*Manager)(nil)

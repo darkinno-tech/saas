@@ -7,12 +7,12 @@ import (
 	"net/http"
 	"net/http/httptest"
 
-	tenantctx "github.com/im10furry/saas/core/context"
-	"github.com/im10furry/saas/core/resolver"
-	"github.com/im10furry/saas/core/store"
-	"github.com/im10furry/saas/core/types"
-	gormtenant "github.com/im10furry/saas/data/gorm"
-	ginsaas "github.com/im10furry/saas/web/gin"
+	tenantctx "github.com/darkinno-tech/saas/core/context"
+	"github.com/darkinno-tech/saas/core/resolver"
+	"github.com/darkinno-tech/saas/core/store"
+	"github.com/darkinno-tech/saas/core/types"
+	gormtenant "github.com/darkinno-tech/saas/data/gorm"
+	ginsaas "github.com/darkinno-tech/saas/web/gin"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/driver/mysql"

@@ -5,7 +5,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/im10furry/saas/biz/user"
+	"github.com/darkinno-tech/saas/biz/user"
 )
 
 func TestServiceAuthenticateCreatesUserMemberAndLink(t *testing.T) {

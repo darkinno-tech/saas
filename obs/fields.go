@@ -3,7 +3,7 @@ package obs
 import (
 	"context"
 
-	tenantctx "github.com/im10furry/saas/core/context"
+	tenantctx "github.com/darkinno-tech/saas/core/context"
 )
 
 const (

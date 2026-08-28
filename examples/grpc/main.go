@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"log"
 
-	tenantctx "github.com/im10furry/saas/core/context"
-	"github.com/im10furry/saas/core/store"
-	"github.com/im10furry/saas/core/types"
-	baserpc "github.com/im10furry/saas/rpc"
-	grpcsaas "github.com/im10furry/saas/rpc/grpc"
+	tenantctx "github.com/darkinno-tech/saas/core/context"
+	"github.com/darkinno-tech/saas/core/store"
+	"github.com/darkinno-tech/saas/core/types"
+	baserpc "github.com/darkinno-tech/saas/rpc"
+	grpcsaas "github.com/darkinno-tech/saas/rpc/grpc"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"

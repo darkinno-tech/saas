@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/im10furry/saas/core/types"
-	"github.com/im10furry/saas/subscription"
+	"github.com/darkinno-tech/saas/core/types"
+	"github.com/darkinno-tech/saas/subscription"
 )
 
 func TestSubscriptionSQLStoreMySQLIntegration(t *testing.T) {

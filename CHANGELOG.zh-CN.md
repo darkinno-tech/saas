@@ -10,7 +10,7 @@
 
 ## v0.2.0 - 2026-07-17
 
-- 将 GoTenancy 更名为 SaaS，并将公开 Go 模块路径迁移到 `github.com/im10furry/saas`。
+- 将 GoTenancy 更名为 SaaS，并将公开 Go 模块路径迁移到 `github.com/darkinno-tech/saas`。
 - 将生命周期模块从 `saas/*` 提升为顶级 `tenant`、`plan`、`subscription`、`quota`、`feature` 和 `onboarding` 包。
 - 将框架适配器包标识、Webhook 默认请求头、集成/混沌测试环境变量、默认出站 User-Agent、OpenTelemetry instrumentation scope 以及 CI 覆盖率构件改为 SaaS 命名。
 - 保持 Go `1.24.0` 最低版本和缓存键协议不变。完整升级映射请参阅 [v0.2 迁移指南](docs/migration-v0.2.zh-CN.md)。
@@ -43,7 +43,7 @@
 
 ## v0.1.4 - 2026-07-09
 
-- 将 ORM、框架、gRPC 和示例包恢复到主 Go 模块中，使 `go get github.com/im10furry/gotenancy` 提供完整的包接口。
+- 将 ORM、框架、gRPC 和示例包恢复到主 Go 模块中，使 `go get github.com/darkinno-tech/gotenancy` 提供完整的包接口。
 - 将 CI 和 lint 验证恢复为根模块检查，同时继续将 SQLStore 数据库集成测试排除在默认门禁之外。
 - 明确未来扩展能力（而不是核心接入适配器）才是合适的拆分边界。
 

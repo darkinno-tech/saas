@@ -6,8 +6,8 @@ import (
 	"testing"
 	"time"
 
-	tenantctx "github.com/im10furry/saas/core/context"
-	"github.com/im10furry/saas/core/types"
+	tenantctx "github.com/darkinno-tech/saas/core/context"
+	"github.com/darkinno-tech/saas/core/types"
 )
 
 func TestTenantCacheScopesKeys(t *testing.T) {

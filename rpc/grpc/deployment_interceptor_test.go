@@ -5,9 +5,9 @@ import (
 	"errors"
 	"testing"
 
-	tenantctx "github.com/im10furry/saas/core/context"
-	"github.com/im10furry/saas/core/store"
-	"github.com/im10furry/saas/core/types"
+	tenantctx "github.com/darkinno-tech/saas/core/context"
+	"github.com/darkinno-tech/saas/core/store"
+	"github.com/darkinno-tech/saas/core/types"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"

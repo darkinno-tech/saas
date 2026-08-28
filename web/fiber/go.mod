@@ -1,9 +1,9 @@
-module github.com/im10furry/saas/web/fiber
+module github.com/darkinno-tech/saas/web/fiber
 
 go 1.22.0
 
 require (
-	github.com/im10furry/saas v0.3.0
+	github.com/darkinno-tech/saas v0.3.0
 	github.com/gofiber/fiber/v2 v2.52.13
 )
 
@@ -21,4 +21,4 @@ require (
 	golang.org/x/sys v0.28.0 // indirect
 )
 
-replace github.com/im10furry/saas => ../..
+replace github.com/darkinno-tech/saas => ../..
