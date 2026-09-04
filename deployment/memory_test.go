@@ -525,3 +525,77 @@ type failCutoverStore struct {
 func (*failCutoverStore) CutoverMove(context.Context, Assignment, Move, Assignment) error {
 	return errInjectedCutover
 }
+
+func TestMemoryStoreListAssignmentsAndMovesByUnit(t *testing.T) {
+	t.Parallel()
+	ctx := context.Background()
+	store := NewMemoryStore()
+	for _, id := range []types.DeploymentUnitID{"cn-a", "eu-a"} {
+		if err := store.CreateUnit(ctx, activeUnit(id)); err != nil {
+			t.Fatalf("CreateUnit(%q) error = %v", id, err)
+		}
+	}
+	for _, assignment := range []Assignment{
+		{TenantID: "tenant-b", UnitID: "cn-a", Version: 1},
+		{TenantID: "tenant-a", UnitID: "cn-a", Version: 1},
+	} {
+		if err := store.CreateAssignment(ctx, assignment); err != nil {
+			t.Fatalf("CreateAssignment() error = %v", err)
+		}
+	}
+
+	if _, err := store.ListAssignmentsByUnit(ctx, ""); !errors.Is(err, ErrInvalidDeploymentUnit) {
+		t.Fatalf("ListAssignmentsByUnit(\"\") error = %v, want ErrInvalidDeploymentUnit", err)
+	}
+	assignments, err := store.ListAssignmentsByUnit(ctx, "cn-a")
+	if err != nil {
+		t.Fatalf("ListAssignmentsByUnit() error = %v", err)
+	}
+	if len(assignments) != 2 || assignments[0].TenantID != "tenant-a" || assignments[1].TenantID != "tenant-b" {
+		t.Fatalf("ListAssignmentsByUnit() = %#v, want sorted tenant-a, tenant-b", assignments)
+	}
+	if got, err := store.ListAssignmentsByUnit(ctx, "eu-a"); err != nil || len(got) != 0 {
+		t.Fatalf("ListAssignmentsByUnit(empty unit) = %#v, %v; want [], nil", got, err)
+	}
+
+	move := Move{TenantID: "tenant-a", SourceUnitID: "cn-a", TargetUnitID: "eu-a"}
+	if err := store.CreateMove(ctx, move); err != nil {
+		t.Fatalf("CreateMove() error = %v", err)
+	}
+	if _, err := store.ListMovesByUnit(ctx, ""); !errors.Is(err, ErrInvalidDeploymentUnit) {
+		t.Fatalf("ListMovesByUnit(\"\") error = %v, want ErrInvalidDeploymentUnit", err)
+	}
+	moves, err := store.ListMovesByUnit(ctx, "cn-a")
+	if err != nil {
+		t.Fatalf("ListMovesByUnit() error = %v", err)
+	}
+	if len(moves) != 1 || moves[0] != move {
+		t.Fatalf("ListMovesByUnit() = %#v, want [%#v]", moves, move)
+	}
+	got, err := store.GetMove(ctx, "tenant-a")
+	if err != nil {
+		t.Fatalf("GetMove() error = %v", err)
+	}
+	if got != move {
+		t.Fatalf("GetMove() = %#v, want %#v", got, move)
+	}
+	if _, err := store.GetMove(ctx, ""); !errors.Is(err, ErrInvalidMove) {
+		t.Fatalf("GetMove(\"\") error = %v, want ErrInvalidMove", err)
+	}
+	if _, err := store.GetMove(ctx, "absent"); !errors.Is(err, ErrMoveNotFound) {
+		t.Fatalf("GetMove(absent) error = %v, want ErrMoveNotFound", err)
+	}
+
+	if err := store.DeleteMove(ctx, ""); !errors.Is(err, ErrInvalidMove) {
+		t.Fatalf("DeleteMove(\"\") error = %v, want ErrInvalidMove", err)
+	}
+	if err := store.DeleteMove(ctx, "tenant-a"); err != nil {
+		t.Fatalf("DeleteMove() error = %v", err)
+	}
+	if err := store.DeleteMove(ctx, "tenant-a"); !errors.Is(err, ErrMoveNotFound) {
+		t.Fatalf("second DeleteMove() error = %v, want ErrMoveNotFound", err)
+	}
+	if _, err := store.GetMove(ctx, "tenant-a"); !errors.Is(err, ErrMoveNotFound) {
+		t.Fatalf("GetMove() after DeleteMove error = %v, want ErrMoveNotFound", err)
+	}
+}

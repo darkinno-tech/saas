@@ -356,3 +356,32 @@ func (store *barrierCompareAndSwapStore) CompareAndSwap(ctx context.Context, exp
 	}
 	return store.CompareAndSwapStore.CompareAndSwap(ctx, expected, updated)
 }
+
+type nonConditionalStore struct {
+	store.Store
+}
+
+func TestManagerFallsBackWhenStoreLacksCompareAndSwap(t *testing.T) {
+	ctx := context.Background()
+	backing := store.NewMemoryStore()
+	manager := New(&nonConditionalStore{Store: backing})
+
+	created, err := manager.Create(ctx, CreateInput{ID: "tenant-a", Name: "Tenant A", PlanID: "starter"})
+	if err != nil {
+		t.Fatalf("Create() error = %v", err)
+	}
+	active, err := manager.Activate(ctx, created.ID)
+	if err != nil {
+		t.Fatalf("Activate() error = %v", err)
+	}
+	if active.Status != types.TenantStatusActive {
+		t.Fatalf("Activate() status = %q, want active", active.Status)
+	}
+	got, err := backing.Get(ctx, created.ID)
+	if err != nil {
+		t.Fatalf("store.Get() error = %v", err)
+	}
+	if got.Status != types.TenantStatusActive || got.Name != "Tenant A" || got.PlanID != "starter" {
+		t.Fatalf("stored tenant = %+v, want active with metadata preserved", got)
+	}
+}
