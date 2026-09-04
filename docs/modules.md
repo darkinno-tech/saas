@@ -15,7 +15,7 @@ helpers, `net/http` middleware, in-memory cache, `slog` helpers, and business
 modules that do not need an external provider SDK.
 
 ```bash
-go get github.com/darkinno-tech/saas@v0.3.0
+go get github.com/darkinno-tech/saas@v0.3.3
 ```
 
 ### Host-integrated domain packages
@@ -30,13 +30,14 @@ a host `Authorizer` adapter; callers must not treat the supplied `Actor` or
 `pending`, `settled`, or `rejected` outcome, so only a verified terminal result
 changes a submitted batch.
 
-Keep the root and every selected optional module on the same SaaS release.
-For example, a GORM application installs exactly the root module and the GORM
-adapter:
+Install the root module first, then add each optional module at a published
+tag. Nested modules may have independent patch versions; their `go.mod` files
+pin the compatible root release. For example, the currently published GORM
+adapter is compatible with root `v0.3.3`:
 
 ```bash
-go get github.com/darkinno-tech/saas@v0.3.0
-go get github.com/darkinno-tech/saas/data/gorm@v0.3.0
+go get github.com/darkinno-tech/saas@v0.3.3
+go get github.com/darkinno-tech/saas/data/gorm@v0.3.1
 ```
 
 ## Optional integration modules
@@ -59,11 +60,13 @@ raises the requirement for the consuming application accordingly.
 | `github.com/darkinno-tech/saas/cache/redis` | 1.24 | `go-redis/v9` cache adapter |
 | `github.com/darkinno-tech/saas/biz/identity/oidc` | 1.24 | OIDC authorization-code bridge |
 
-Install any one of them with `go get <module-path>@v0.3.0`. For example:
+Install the root module before adding an integration, and use a published
+version for that integration. For example:
 
 ```bash
-go get github.com/darkinno-tech/saas/cache/redis@v0.3.0
-go get github.com/darkinno-tech/saas/biz/identity/oidc@v0.3.0
+go get github.com/darkinno-tech/saas@v0.3.3
+go get github.com/darkinno-tech/saas/cache/redis@v0.3.1
+go get github.com/darkinno-tech/saas/biz/identity/oidc@v0.3.1
 ```
 
 This is intentional compatibility isolation: Go 1.22 and 1.23 applications
@@ -84,20 +87,20 @@ application's dependency graph. Run them from the repository root with `go -C`:
 
 ## Release and tag rules
 
-All modules in a SaaS release use the same semantic version, but Go requires a
-directory prefix in a tag for every nested module:
+Go requires a directory prefix in a tag for every nested module. A nested
+module must require a root version that is already published; do not assume all
+modules use the same patch version:
 
-| Module | Release tag for v0.3.0 |
+| Module | Current published tag |
 |---|---|
-| Root `github.com/darkinno-tech/saas` | `v0.3.0` |
-| `github.com/darkinno-tech/saas/data/gorm` | `data/gorm/v0.3.0` |
-| `github.com/darkinno-tech/saas/cache/redis` | `cache/redis/v0.3.0` |
-| Any other nested module at `<path>` | `<path>/v0.3.0` |
+| Root `github.com/darkinno-tech/saas` | `v0.3.3` |
+| `github.com/darkinno-tech/saas/data/gorm` | `data/gorm/v0.3.1` |
+| `github.com/darkinno-tech/saas/cache/redis` | `cache/redis/v0.3.1` |
+| Any new nested module at `<path>` | `<path>/vX.Y.Z` |
 
-The same rule applies to the example modules, for example
-`examples/quickstart/v0.3.0`. Create the root tag and every changed nested
-module tag from the same release commit so `go get` can resolve a consistent
-set of modules.
+The same rule applies to example modules. Before publishing an adapter tag,
+verify it from an isolated consumer module with `go get <module-path>@<tag>`;
+local `replace` directives do not participate in downstream resolution.
 
 ## Migrating from the pre-split API
 
@@ -109,7 +112,7 @@ own module paths or require an explicit module installation.
 | `cache.NewRedis`, `cache.NewRedisFromOptions`, `cache.NewRedisFromClusterOptions`, `cache.NewRedisFromURL` from `github.com/darkinno-tech/saas/cache` | Import `github.com/darkinno-tech/saas/cache/redis`; use `redis.New`, `redis.NewFromOptions`, `redis.NewFromClusterOptions`, and `redis.NewFromURL`. |
 | `obs.NewTracer`, `obs.SpanAttributes`, `obs.AddSpanAttributes`, `obs.StartSpan`, `obs.RecordSpanError` from `github.com/darkinno-tech/saas/obs` | Import `github.com/darkinno-tech/saas/obs/otel`; use the same helper names through the `otel` package. |
 | `notification.NewSESNotifier` and the `notification.SES*` types | Import `github.com/darkinno-tech/saas/biz/notification/ses`; use `ses.NewSESNotifier` and `ses.SES*` types. |
-| Root-owned OIDC integration | Add `github.com/darkinno-tech/saas/biz/identity/oidc@v0.3.0` explicitly. The package import path and name remain `oidc`; `biz/identity` remains the core post-auth identity mapping package. |
+| Root-owned OIDC integration | Add `github.com/darkinno-tech/saas/biz/identity/oidc@v0.3.1` explicitly. The package import path and name remain `oidc`; `biz/identity` remains the core post-auth identity mapping package. |
 
 For example, migrate a Redis adapter import as follows:
 

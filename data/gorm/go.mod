@@ -3,7 +3,7 @@ module github.com/darkinno-tech/saas/data/gorm
 go 1.22.0
 
 require (
-	github.com/darkinno-tech/saas v0.3.0
+	github.com/darkinno-tech/saas v0.3.3
 	github.com/go-sql-driver/mysql v1.8.1
 	gorm.io/driver/mysql v1.6.0
 	gorm.io/gorm v1.31.2

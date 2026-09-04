@@ -3,9 +3,9 @@ module github.com/darkinno-tech/saas/biz/notification/ses
 go 1.23.0
 
 require (
-	github.com/darkinno-tech/saas v0.3.0
 	github.com/aws/aws-sdk-go-v2/service/sesv2 v1.55.2
 	github.com/aws/smithy-go v1.24.0
+	github.com/darkinno-tech/saas v0.3.3
 )
 
 require (

@@ -3,7 +3,7 @@ module github.com/darkinno-tech/saas/web/echo
 go 1.23.0
 
 require (
-	github.com/darkinno-tech/saas v0.3.0
+	github.com/darkinno-tech/saas v0.3.3
 	github.com/labstack/echo/v4 v4.13.4
 )
 

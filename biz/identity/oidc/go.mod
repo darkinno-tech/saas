@@ -3,8 +3,9 @@ module github.com/darkinno-tech/saas/biz/identity/oidc
 go 1.24.0
 
 require (
-	github.com/darkinno-tech/saas v0.3.0
+	github.com/DATA-DOG/go-sqlmock v1.5.0
 	github.com/coreos/go-oidc/v3 v3.15.0
+	github.com/darkinno-tech/saas v0.3.3
 	golang.org/x/oauth2 v0.30.0
 )
 

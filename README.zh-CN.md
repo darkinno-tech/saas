@@ -47,10 +47,10 @@ SaaS v0.2.0 是一次破坏性改名。Go 模块路径现在是
 ```bash
 # 仅核心工具包（Go 1.22+）。
 go mod init your-app
-go get github.com/darkinno-tech/saas@v0.3.0
+go get github.com/darkinno-tech/saas@v0.3.3
 
 # 仅添加应用实际使用的集成；这里以 GORM 为例。
-go get github.com/darkinno-tech/saas/data/gorm@v0.3.0
+go get github.com/darkinno-tech/saas/data/gorm@v0.3.1
 ```
 
 根模块不会下载可选适配器。全部可安装模块及其 Go 版本要求请参阅

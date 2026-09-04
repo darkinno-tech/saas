@@ -14,16 +14,16 @@ $managedEnvironmentVariables = @(
     'SAAS_REDIS_PASSWORD'
 )
 $databaseCoveragePackages = @(
-    'github.com/DarkInno/saas/biz/audit',
-    'github.com/DarkInno/saas/biz/identity',
-    'github.com/DarkInno/saas/biz/identity/oidc',
-    'github.com/DarkInno/saas/biz/rbac',
-    'github.com/DarkInno/saas/biz/user',
-    'github.com/DarkInno/saas/core/store',
-    'github.com/DarkInno/saas/feature',
-    'github.com/DarkInno/saas/plan',
-    'github.com/DarkInno/saas/quota',
-    'github.com/DarkInno/saas/subscription'
+    'github.com/darkinno-tech/saas/biz/audit',
+    'github.com/darkinno-tech/saas/biz/identity',
+    'github.com/darkinno-tech/saas/biz/identity/oidc',
+    'github.com/darkinno-tech/saas/biz/rbac',
+    'github.com/darkinno-tech/saas/biz/user',
+    'github.com/darkinno-tech/saas/core/store',
+    'github.com/darkinno-tech/saas/feature',
+    'github.com/darkinno-tech/saas/plan',
+    'github.com/darkinno-tech/saas/quota',
+    'github.com/darkinno-tech/saas/subscription'
 ) -join ','
 $previousEnvironment = @{}
 foreach ($name in $managedEnvironmentVariables) {

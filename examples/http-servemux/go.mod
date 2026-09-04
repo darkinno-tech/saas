@@ -3,8 +3,8 @@ module github.com/darkinno-tech/saas/examples/http-servemux
 go 1.24.0
 
 require (
-	github.com/darkinno-tech/saas v0.3.0
-	github.com/darkinno-tech/saas/data/gorm v0.3.0
+	github.com/darkinno-tech/saas v0.3.3
+	github.com/darkinno-tech/saas/data/gorm v0.3.1
 	gorm.io/driver/mysql v1.6.0
 	gorm.io/gorm v1.31.2
 )

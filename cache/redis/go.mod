@@ -3,7 +3,7 @@ module github.com/darkinno-tech/saas/cache/redis
 go 1.24.0
 
 require (
-	github.com/darkinno-tech/saas v0.3.0
+	github.com/darkinno-tech/saas v0.3.3
 	github.com/redis/go-redis/v9 v9.21.0
 )
 

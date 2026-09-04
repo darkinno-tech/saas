@@ -3,7 +3,7 @@ module github.com/darkinno-tech/saas/web/fiber
 go 1.22.0
 
 require (
-	github.com/darkinno-tech/saas v0.3.0
+	github.com/darkinno-tech/saas v0.3.3
 	github.com/gofiber/fiber/v2 v2.52.13
 )
 

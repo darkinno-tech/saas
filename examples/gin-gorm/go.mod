@@ -3,9 +3,9 @@ module github.com/darkinno-tech/saas/examples/gin-gorm
 go 1.22.0
 
 require (
-	github.com/darkinno-tech/saas v0.3.0
-	github.com/darkinno-tech/saas/data/gorm v0.3.0
-	github.com/darkinno-tech/saas/web/gin v0.3.0
+	github.com/darkinno-tech/saas v0.3.3
+	github.com/darkinno-tech/saas/data/gorm v0.3.1
+	github.com/darkinno-tech/saas/web/gin v0.3.2
 	github.com/gin-gonic/gin v1.10.1
 	gorm.io/driver/mysql v1.6.0
 	gorm.io/gorm v1.31.2

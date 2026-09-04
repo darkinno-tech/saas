@@ -52,10 +52,10 @@ See [docs/modules.md](docs/modules.md) for the complete compatibility matrix.
 ```bash
 # Core toolkit only (Go 1.22+).
 go mod init your-app
-go get github.com/darkinno-tech/saas@v0.3.0
+go get github.com/darkinno-tech/saas@v0.3.3
 
 # Add only the integration your application uses; this example adds GORM.
-go get github.com/darkinno-tech/saas/data/gorm@v0.3.0
+go get github.com/darkinno-tech/saas/data/gorm@v0.3.1
 ```
 
 The root module does not download optional adapters. See

@@ -3,8 +3,8 @@ module github.com/darkinno-tech/saas/examples/grpc
 go 1.23.0
 
 require (
-	github.com/darkinno-tech/saas v0.3.0
-	github.com/darkinno-tech/saas/rpc/grpc v0.3.0
+	github.com/darkinno-tech/saas v0.3.3
+	github.com/darkinno-tech/saas/rpc/grpc v0.3.2
 	google.golang.org/grpc v1.75.1
 )
 

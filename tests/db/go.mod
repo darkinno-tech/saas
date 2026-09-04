@@ -3,8 +3,8 @@ module github.com/darkinno-tech/saas/tests/db
 go 1.24.0
 
 require (
-	github.com/darkinno-tech/saas v0.3.0
-	github.com/darkinno-tech/saas/biz/identity/oidc v0.3.0
+	github.com/darkinno-tech/saas v0.3.3
+	github.com/darkinno-tech/saas/biz/identity/oidc v0.3.1
 	github.com/go-sql-driver/mysql v1.8.1
 	github.com/lib/pq v1.10.9
 )

@@ -9,18 +9,18 @@ SaaS v0.3.0 将无外部集成依赖的租户工具包，与仅部分应用需�
 根模块为 `github.com/darkinno-tech/saas`，支持 Go `1.22+`。它包含租户边界、生命周期服务、`database/sql` 与 sqlx 辅助能力、`net/http` 中间件、内存缓存、`slog` 辅助函数，以及不依赖外部提供商 SDK 的业务模块。
 
 ```bash
-go get github.com/darkinno-tech/saas@v0.3.0
+go get github.com/darkinno-tech/saas@v0.3.3
 ```
 
 ### 宿主集成的领域包
 
 [`biz/commission`](../biz/commission) 是根模块中的宿主集成型领域包，应用通过组合方式按需接入。它不依赖支付 SDK，也不执行打款或迁移；宿主应用负责提供标准化业务事实（例如已支付/退款事件），决定何时记账或冲正收益，并可选地提供结算适配器。所有 `Service` 命令都必须由宿主 `Authorizer` 适配器授权，不能把传入的 `Actor` 或 `Actor.Host` 字段当作凭据。结算适配器必须返回明确的 `pending`、`settled` 或 `rejected` 结果，只有经验证的终态才会改变 submitted 批次。
 
-根模块和实际选用的可选模块应保持在同一个 SaaS 发布版本。例如，GORM 应用只需安装根模块和 GORM 适配器：
+应先安装根模块，再以已发布的 tag 安装可选模块。嵌套模块可以有各自的补丁版本，其 `go.mod` 会声明兼容的根模块版本。例如，当前已发布的 GORM 适配器与根模块 `v0.3.3` 兼容：
 
 ```bash
-go get github.com/darkinno-tech/saas@v0.3.0
-go get github.com/darkinno-tech/saas/data/gorm@v0.3.0
+go get github.com/darkinno-tech/saas@v0.3.3
+go get github.com/darkinno-tech/saas/data/gorm@v0.3.1
 ```
 
 ## 可选集成模块
@@ -41,11 +41,12 @@ go get github.com/darkinno-tech/saas/data/gorm@v0.3.0
 | `github.com/darkinno-tech/saas/cache/redis` | 1.24 | `go-redis/v9` 缓存适配器 |
 | `github.com/darkinno-tech/saas/biz/identity/oidc` | 1.24 | OIDC 授权码流程桥接 |
 
-可通过 `go get <模块路径>@v0.3.0` 安装任一可选模块，例如：
+安装集成模块前应先添加根模块，并为该集成使用已发布的版本。例如：
 
 ```bash
-go get github.com/darkinno-tech/saas/cache/redis@v0.3.0
-go get github.com/darkinno-tech/saas/biz/identity/oidc@v0.3.0
+go get github.com/darkinno-tech/saas@v0.3.3
+go get github.com/darkinno-tech/saas/cache/redis@v0.3.1
+go get github.com/darkinno-tech/saas/biz/identity/oidc@v0.3.1
 ```
 
 这是有意设计的兼容性隔离：使用 Go 1.22 或 1.23 的应用可以接入核心工具包，而不会被迫下载或编译需要 Go 1.24 的 Redis、OIDC 依赖链。
@@ -63,16 +64,16 @@ go get github.com/darkinno-tech/saas/biz/identity/oidc@v0.3.0
 
 ## 发布与 tag 规则
 
-同一个 SaaS 发布中的模块使用相同的语义版本；但 Go 要求每个嵌套模块的 tag 带上目录前缀：
+Go 要求每个嵌套模块的 tag 带上目录前缀。嵌套模块必须依赖一个已经发布的根模块版本，不能假设所有模块使用相同的补丁版本：
 
-| 模块 | v0.3.0 对应发布 tag |
+| 模块 | 当前已发布 tag |
 |---|---|
-| 根模块 `github.com/darkinno-tech/saas` | `v0.3.0` |
-| `github.com/darkinno-tech/saas/data/gorm` | `data/gorm/v0.3.0` |
-| `github.com/darkinno-tech/saas/cache/redis` | `cache/redis/v0.3.0` |
-| 位于 `<path>` 的任意其他嵌套模块 | `<path>/v0.3.0` |
+| 根模块 `github.com/darkinno-tech/saas` | `v0.3.3` |
+| `github.com/darkinno-tech/saas/data/gorm` | `data/gorm/v0.3.1` |
+| `github.com/darkinno-tech/saas/cache/redis` | `cache/redis/v0.3.1` |
+| 位于 `<path>` 的任意新嵌套模块 | `<path>/vX.Y.Z` |
 
-同一规则也适用于示例模块，例如 `examples/quickstart/v0.3.0`。应从同一个发布提交创建根模块 tag 和所有已变更嵌套模块的 tag，这样 `go get` 才能解析出一致的模块集合。
+同一规则也适用于示例模块。发布适配器 tag 前，应在隔离的消费者模块中运行 `go get <module-path>@<tag>` 验证；本地 `replace` 指令不会参与下游依赖解析。
 
 ## 从拆分前 API 迁移
 
@@ -83,7 +84,7 @@ go get github.com/darkinno-tech/saas/biz/identity/oidc@v0.3.0
 | 从 `github.com/darkinno-tech/saas/cache` 使用 `cache.NewRedis`、`cache.NewRedisFromOptions`、`cache.NewRedisFromClusterOptions`、`cache.NewRedisFromURL` | 导入 `github.com/darkinno-tech/saas/cache/redis`；使用 `redis.New`、`redis.NewFromOptions`、`redis.NewFromClusterOptions`、`redis.NewFromURL`。 |
 | 从 `github.com/darkinno-tech/saas/obs` 使用 `obs.NewTracer`、`obs.SpanAttributes`、`obs.AddSpanAttributes`、`obs.StartSpan`、`obs.RecordSpanError` | 导入 `github.com/darkinno-tech/saas/obs/otel`；通过 `otel` 包使用同名辅助函数。 |
 | `notification.NewSESNotifier` 与 `notification.SES*` 类型 | 导入 `github.com/darkinno-tech/saas/biz/notification/ses`；使用 `ses.NewSESNotifier` 和 `ses.SES*` 类型。 |
-| 由根模块携带的 OIDC 集成 | 显式添加 `github.com/darkinno-tech/saas/biz/identity/oidc@v0.3.0`。包导入路径和包名仍为 `oidc`；`biz/identity` 仍是核心的认证后身份映射包。 |
+| 由根模块携带的 OIDC 集成 | 显式添加 `github.com/darkinno-tech/saas/biz/identity/oidc@v0.3.1`。包导入路径和包名仍为 `oidc`；`biz/identity` 仍是核心的认证后身份映射包。 |
 
 例如，Redis 适配器的导入方式可按以下方式迁移：
 
