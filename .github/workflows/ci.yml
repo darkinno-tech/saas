@@ -60,10 +60,12 @@ jobs:
           cache-dependency-path: |
             go.sum
             **/go.sum
+      # data/gorm now belongs to the Go 1.25 tier: GO-2026-5970 is only fixed
+      # by golang.org/x/text v0.39.0, whose go.mod requires Go 1.25.0.
       - name: Test Go 1.22 adapters
         shell: bash
         run: |
-          for module in data/gorm web/gin web/fiber web/kratos; do
+          for module in web/gin web/fiber web/kratos; do
             (
               cd "$module"
               go mod tidy
@@ -86,10 +88,12 @@ jobs:
           cache-dependency-path: |
             go.sum
             **/go.sum
+      # rpc/grpc now belongs to the Go 1.25 tier: GO-2026-6061 is only fixed
+      # by google.golang.org/grpc v1.82.1, whose go.mod requires Go 1.25.0.
       - name: Test Go 1.23 adapters
         shell: bash
         run: |
-          for module in data/ent web/echo rpc/grpc obs/otel biz/notification/ses; do
+          for module in data/ent web/echo obs/otel biz/notification/ses; do
             (
               cd "$module"
               go mod tidy
@@ -126,6 +130,35 @@ jobs:
             )
           done
 
+  optional-go125:
+    name: optional modules (Go 1.25)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-go@v6
+        with:
+          go-version: "1.25.x"
+          cache: true
+          cache-dependency-path: |
+            go.sum
+            **/go.sum
+      # GORM and gRPC are pinned to the patched releases for GO-2026-5970 and
+      # GO-2026-6061, both of which require Go 1.25.0. Keep this job on the
+      # Go 1.25 line so the tier's minimum toolchain stays covered.
+      - name: Test Go 1.25 adapters
+        shell: bash
+        run: |
+          for module in data/gorm rpc/grpc; do
+            (
+              cd "$module"
+              go mod tidy
+              git diff --exit-code -- go.mod go.sum
+              go vet ./...
+              go test ./...
+              go test -race ./...
+            )
+          done
+
   examples:
     name: examples (Go ${{ matrix.go-version }})
     runs-on: ubuntu-latest
@@ -133,10 +166,10 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - go-version: "1.22.x"
-            modules: "examples/quickstart examples/gin-gorm"
           - go-version: "1.23.x"
-            modules: "examples/grpc examples/ent"
+            modules: "examples/ent"
+          - go-version: "1.25.x"
+            modules: "examples/quickstart examples/gin-gorm examples/grpc"
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-go@v6
@@ -198,13 +231,24 @@ jobs:
 
       - name: Run govulncheck for every published module
         shell: bash
+        # Scan every module before failing. Aborting on the first hit once hid
+        # a second advisory behind an earlier module's finding.
         run: |
+          failed=""
           for module in . data/gorm data/ent web/gin web/echo web/fiber web/kratos rpc/grpc cache/redis obs/otel biz/identity/oidc biz/notification/ses; do
-            (
-              cd "$module"
-              go run golang.org/x/vuln/cmd/govulncheck@v1.5.0 ./...
-            )
+            echo "::group::govulncheck $module"
+            if (cd "$module" && go run golang.org/x/vuln/cmd/govulncheck@v1.5.0 ./...); then
+              echo "govulncheck: $module clean"
+            else
+              echo "govulncheck: $module reported findings"
+              failed="$failed $module"
+            fi
+            echo "::endgroup::"
           done
+          if [ -n "$failed" ]; then
+            echo "::error::govulncheck findings in:$failed"
+            exit 1
+          fi
 
   integration:
     name: integration (mysql, postgres, redis)
@@ -215,7 +259,8 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v6
         with:
-          go-version: "1.24.x"
+          # 1.25 is the floor because run-integration.ps1 also builds data/gorm.
+          go-version: "1.25.x"
           cache: true
           cache-dependency-path: |
             go.sum
@@ -245,7 +290,9 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v6
         with:
-          go-version: "1.24.x"
+          # 1.25 is the floor because run-coverage.ps1 also builds the Go 1.25
+          # GORM and gRPC adapter modules.
+          go-version: "1.25.x"
           cache: true
           cache-dependency-path: |
             go.sum

@@ -4,13 +4,33 @@
 
 ## Go
 
-- Module language version: Go `1.24`.
-- `go.mod` records this as `go 1.24.0`.
-- CI test jobs should cover Go `1.24.x` and Go `1.26.x`; lint and vulnerability scans run on a patched Go `1.26.5+` toolchain.
+- Root module language version: Go `1.22`. `go.mod` records this as `go 1.22.0`.
+- Optional adapters declare their own minimum, so importing one raises the
+  consumer's requirement: Go `1.22` for `web/gin`, `web/fiber`, and
+  `web/kratos`; Go `1.23` for `data/ent`, `web/echo`, `obs/otel`, and
+  `biz/notification/ses`; Go `1.24` for `cache/redis` and
+  `biz/identity/oidc`; Go `1.25` for `data/gorm` and `rpc/grpc`.
+- CI test jobs cover Go `1.22.x` through Go `1.26.x` across those tiers. Lint
+  and vulnerability scans run on a patched Go `1.26.5+` toolchain, and the
+  `coverage` and `integration` gates run on Go `1.25.x` because they build the
+  Go 1.25 adapters.
 
-Go `1.23` support was dropped because the patched `github.com/go-jose/go-jose/v4` release required by the OIDC path requires Go `1.24.0`.
+Go `1.23` support was dropped for the OIDC path because the patched
+`github.com/go-jose/go-jose/v4` release requires Go `1.24.0`.
 
-The module should not require Go `1.25+` dependencies without an explicit compatibility decision.
+The module should not require Go `1.25+` dependencies without an explicit
+compatibility decision. `data/gorm` and `rpc/grpc` are the recorded exception:
+
+- GO-2026-5970 is only fixed by `golang.org/x/text` v0.39.0, which requires
+  `gorm.io/gorm` consumers to move to that release.
+- GO-2026-6061 is only fixed by `google.golang.org/grpc` v1.82.1; the newest
+  Go 1.24-compatible gRPC release (`v1.80.0`) is still affected.
+
+Both patched releases declare `go 1.25.0` and have no earlier fix, so keeping
+those two adapters on Go 1.22 or 1.23 would mean publishing a
+known-vulnerable dependency graph. Applications that must stay on Go 1.22 -
+1.24 can keep using the root toolkit and the lower-tier adapters; adopting
+`data/gorm` or `rpc/grpc` now raises the consumer's minimum to Go 1.25.
 
 ## Isolation Model
 
@@ -33,7 +53,7 @@ select connections; hosts own regional routing and data movement. See
 | Echo | `github.com/labstack/echo/v4` v4.13.4 |
 | Fiber | `github.com/gofiber/fiber/v2` v2.52.13 |
 | Kratos | `github.com/go-kratos/kratos/v2` v2.9.2 |
-| gRPC | `google.golang.org/grpc` v1.75.1 |
+| gRPC | `google.golang.org/grpc` v1.82.1 |
 | OIDC | `github.com/coreos/go-oidc/v3` v3.15.0 and `golang.org/x/oauth2` v0.30.0 |
 | Redis cache | `github.com/redis/go-redis/v9` v9.21.0 |
 

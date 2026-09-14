@@ -43,7 +43,8 @@ before upgrading an existing application.
 
 - Go `1.22+` for the root module.
 - Optional integrations have their own minimum Go versions; Redis and OIDC
-  require Go `1.24+`.
+  require Go `1.24+`, and GORM and gRPC require Go `1.25+` so they can ship the
+  releases that clear GO-2026-5970 and GO-2026-6061.
 
 See [docs/modules.md](docs/modules.md) for the complete compatibility matrix.
 
@@ -283,7 +284,7 @@ ctx := tenantctx.WithHost(context.Background())
 - `core/resolver`: header, cookie, query, domain, token-claim, and composite resolvers.
 - `core/store`: memory store, paginated list filters, memory cache, cached store decorator, and `database/sql` store.
 - `data`: ORM-independent tenant filter condition.
-- `data/gorm`: optional Go 1.22 GORM plugin, guard suite, host-only `SafeRaw`/`SafeExec`, `BulkCreate`, and delete APIs.
+- `data/gorm`: optional Go 1.25 GORM plugin, guard suite, host-only `SafeRaw`/`SafeExec`, `BulkCreate`, and delete APIs.
 - `data/ent`: optional Go 1.23 Ent selector predicate, query filter, mutation filter, and hook APIs.
 - `data/sqlx`: tenant-filtered APIs for simple single-table SELECT/UPDATE/DELETE statements.
 - `tenant`: tenant lifecycle state machine.
@@ -296,7 +297,7 @@ ctx := tenantctx.WithHost(context.Background())
 - `biz/identity`: post-auth tenant user mapping for verified external identity assertions, with memory and `database/sql` stores.
 - `biz/identity/oidc`: optional Go 1.24 OIDC authorization-code bridge with PKCE, state, nonce, ID-token verification, one-time login state storage, SQL-backed login state storage, and assertion output.
 - `web/http`: core tenant middleware and guards for `net/http`, with optional deployment resolution; Gin, Echo, Fiber, and Kratos are optional modules.
-- `rpc/grpc`: optional Go 1.23 gRPC unary and stream tenant interceptors with optional deployment resolution.
+- `rpc/grpc`: optional Go 1.25 gRPC unary and stream tenant interceptors with optional deployment resolution.
 - `migration`: tenant column and index planning.
 - `cache`: core tenant-scoped cache wrapper and memory adapters; `cache/redis` is an optional Go 1.24 adapter.
 - `obs`: core tenant observability fields, deployment-unit IDs, redaction, and `slog` helpers; `obs/otel` is an optional Go 1.23 module.

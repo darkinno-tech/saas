@@ -29,13 +29,13 @@ go get github.com/darkinno-tech/saas/data/gorm@v0.3.1
 
 | 模块路径 | 最低 Go | 用途 |
 |---|---:|---|
-| `github.com/darkinno-tech/saas/data/gorm` | 1.22 | GORM v2 租户插件与防护 |
+| `github.com/darkinno-tech/saas/data/gorm` | 1.25 | GORM v2 租户插件与防护 |
 | `github.com/darkinno-tech/saas/web/gin` | 1.22 | Gin 中间件与防护 |
 | `github.com/darkinno-tech/saas/web/fiber` | 1.22 | Fiber 中间件与防护 |
 | `github.com/darkinno-tech/saas/web/kratos` | 1.22 | Kratos 中间件与防护 |
 | `github.com/darkinno-tech/saas/data/ent` | 1.23 | Ent 谓词、过滤器与 Hook |
 | `github.com/darkinno-tech/saas/web/echo` | 1.23 | Echo 中间件与防护 |
-| `github.com/darkinno-tech/saas/rpc/grpc` | 1.23 | gRPC unary 与 stream 拦截器 |
+| `github.com/darkinno-tech/saas/rpc/grpc` | 1.25 | gRPC unary 与 stream 拦截器 |
 | `github.com/darkinno-tech/saas/obs/otel` | 1.23 | OpenTelemetry 链路追踪辅助函数 |
 | `github.com/darkinno-tech/saas/biz/notification/ses` | 1.23 | Amazon SES v2 通知器 |
 | `github.com/darkinno-tech/saas/cache/redis` | 1.24 | `go-redis/v9` 缓存适配器 |
@@ -51,15 +51,17 @@ go get github.com/darkinno-tech/saas/biz/identity/oidc@v0.3.1
 
 这是有意设计的兼容性隔离：使用 Go 1.22 或 1.23 的应用可以接入核心工具包，而不会被迫下载或编译需要 Go 1.24 的 Redis、OIDC 依赖链。
 
+GORM 与 gRPC 适配器位于 Go 1.25 层，因为修复 GO-2026-5970（`golang.org/x/text` v0.39.0）与 GO-2026-6061（`google.golang.org/grpc` v1.82.1）的补丁版本都声明了 `go 1.25.0`。两个安全公告都没有更早的修复版本，因此若把这两个适配器留在 Go 1.22 或 1.23，就等于继续发布带已知漏洞的依赖。该决策记录见[兼容性](compatibility.zh-CN.md)。
+
 ## 示例模块
 
 可运行示例也是独立模块，因此不会进入应用的依赖图。可在仓库根目录使用 `go -C` 运行：
 
 | 示例模块 | 最低 Go | 命令 |
 |---|---:|---|
-| `github.com/darkinno-tech/saas/examples/quickstart` | 1.22 | `go -C examples/quickstart run .` |
-| `github.com/darkinno-tech/saas/examples/gin-gorm` | 1.22 | `go -C examples/gin-gorm run .` |
-| `github.com/darkinno-tech/saas/examples/grpc` | 1.23 | `go -C examples/grpc run .` |
+| `github.com/darkinno-tech/saas/examples/quickstart` | 1.25 | `go -C examples/quickstart run .` |
+| `github.com/darkinno-tech/saas/examples/gin-gorm` | 1.25 | `go -C examples/gin-gorm run .` |
+| `github.com/darkinno-tech/saas/examples/grpc` | 1.25 | `go -C examples/grpc run .` |
 | `github.com/darkinno-tech/saas/examples/ent` | 1.23 | `go -C examples/ent run .` |
 
 ## 发布与 tag 规则

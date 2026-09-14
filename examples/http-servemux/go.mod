@@ -1,6 +1,6 @@
 module github.com/darkinno-tech/saas/examples/http-servemux
 
-go 1.24.0
+go 1.25.0
 
 require (
 	github.com/darkinno-tech/saas v0.3.3
@@ -14,7 +14,7 @@ require (
 	github.com/go-sql-driver/mysql v1.8.1 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
-	golang.org/x/text v0.26.0 // indirect
+	golang.org/x/text v0.39.0 // indirect
 )
 
 replace github.com/darkinno-tech/saas => ../..

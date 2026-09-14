@@ -4,6 +4,12 @@
 
 All notable changes to SaaS are documented in this file.
 
+## Unreleased
+
+- Fixed the CI gates: removed a dead `mustConfigString` test helper flagged by `golangci-lint`, and cleared the `govulncheck` findings.
+- Raised `data/gorm` and `rpc/grpc` to Go `1.25.0`. GO-2026-5970 is only fixed by `golang.org/x/text` v0.39.0 and GO-2026-6061 only by `google.golang.org/grpc` v1.82.1, and both releases require Go `1.25.0`; no earlier fixed release exists. Applications on Go `1.22`-`1.24` can still use the root toolkit and the lower-tier adapters. See [Compatibility](docs/compatibility.md).
+- Moved the `quickstart`, `gin-gorm`, and `grpc` examples to Go `1.25.0` and recorded the tier change in the module matrix and CI workflow.
+
 ## v0.2.1 - 2026-07-17
 
 - Clarified the public project, package, and release introductions so the SaaS positioning and supported lifecycle capabilities are visible from GitHub and pkg.go.dev.

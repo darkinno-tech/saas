@@ -48,13 +48,13 @@ raises the requirement for the consuming application accordingly.
 
 | Module path | Minimum Go | Purpose |
 |---|---:|---|
-| `github.com/darkinno-tech/saas/data/gorm` | 1.22 | GORM v2 tenant plugin and guards |
+| `github.com/darkinno-tech/saas/data/gorm` | 1.25 | GORM v2 tenant plugin and guards |
 | `github.com/darkinno-tech/saas/web/gin` | 1.22 | Gin middleware and guards |
 | `github.com/darkinno-tech/saas/web/fiber` | 1.22 | Fiber middleware and guards |
 | `github.com/darkinno-tech/saas/web/kratos` | 1.22 | Kratos middleware and guards |
 | `github.com/darkinno-tech/saas/data/ent` | 1.23 | Ent predicates, filters, and hooks |
 | `github.com/darkinno-tech/saas/web/echo` | 1.23 | Echo middleware and guards |
-| `github.com/darkinno-tech/saas/rpc/grpc` | 1.23 | gRPC unary and stream interceptors |
+| `github.com/darkinno-tech/saas/rpc/grpc` | 1.25 | gRPC unary and stream interceptors |
 | `github.com/darkinno-tech/saas/obs/otel` | 1.23 | OpenTelemetry tracing helpers |
 | `github.com/darkinno-tech/saas/biz/notification/ses` | 1.23 | Amazon SES v2 notifier |
 | `github.com/darkinno-tech/saas/cache/redis` | 1.24 | `go-redis/v9` cache adapter |
@@ -73,6 +73,13 @@ This is intentional compatibility isolation: Go 1.22 and 1.23 applications
 can adopt the root toolkit without being forced to download or compile the Go
 1.24 Redis or OIDC dependency chains.
 
+The GORM and gRPC adapters sit on the Go 1.25 tier because the patched
+releases that clear GO-2026-5970 (`golang.org/x/text` v0.39.0) and
+GO-2026-6061 (`google.golang.org/grpc` v1.82.1) both declare `go 1.25.0`. No
+older release fixes either advisory, so keeping those adapters on Go 1.22 or
+1.23 would mean shipping a known-vulnerable dependency. See
+[Compatibility](compatibility.md) for the recorded decision.
+
 ## Example modules
 
 Runnable examples are also separate modules, so they do not contribute to an
@@ -80,9 +87,9 @@ application's dependency graph. Run them from the repository root with `go -C`:
 
 | Example module | Minimum Go | Command |
 |---|---:|---|
-| `github.com/darkinno-tech/saas/examples/quickstart` | 1.22 | `go -C examples/quickstart run .` |
-| `github.com/darkinno-tech/saas/examples/gin-gorm` | 1.22 | `go -C examples/gin-gorm run .` |
-| `github.com/darkinno-tech/saas/examples/grpc` | 1.23 | `go -C examples/grpc run .` |
+| `github.com/darkinno-tech/saas/examples/quickstart` | 1.25 | `go -C examples/quickstart run .` |
+| `github.com/darkinno-tech/saas/examples/gin-gorm` | 1.25 | `go -C examples/gin-gorm run .` |
+| `github.com/darkinno-tech/saas/examples/grpc` | 1.25 | `go -C examples/grpc run .` |
 | `github.com/darkinno-tech/saas/examples/ent` | 1.23 | `go -C examples/ent run .` |
 
 ## Release and tag rules
