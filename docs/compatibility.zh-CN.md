@@ -4,13 +4,18 @@
 
 ## Go
 
-- 模块语言版本：Go `1.24`。
-- `go.mod` 将其记录为 `go 1.24.0`。
-- CI 测试任务应覆盖 Go `1.24.x` 和 Go `1.26.x`；lint 和漏洞扫描在已修复的 Go `1.26.5+` 工具链上运行。
+- 根模块语言版本：Go `1.22`。`go.mod` 将其记录为 `go 1.22.0`。
+- 可选适配器各自声明最低版本，导入后会把使用方的最低要求一并抬高：`web/gin`、`web/fiber`、`web/kratos` 为 Go `1.22`；`data/ent`、`web/echo`、`obs/otel`、`biz/notification/ses` 为 Go `1.23`；`cache/redis`、`biz/identity/oidc` 为 Go `1.24`；`data/gorm`、`rpc/grpc` 为 Go `1.25`。
+- CI 测试任务覆盖 Go `1.22.x` 至 Go `1.26.x` 的各层；lint 和漏洞扫描在已修复的 Go `1.26.5+` 工具链上运行；`coverage` 与 `integration` 门禁运行在 Go `1.25.x`，因为它们会编译 Go 1.25 适配器。
 
 由于 OIDC 路径所需的已修复 `github.com/go-jose/go-jose/v4` 版本要求 Go `1.24.0`，因此不再支持 Go `1.23`。
 
-除非作出明确的兼容性决策，模块不应引入要求 Go `1.25+` 的依赖。
+除非作出明确的兼容性决策，模块不应引入要求 Go `1.25+` 的依赖。`data/gorm` 与 `rpc/grpc` 就是已记录的例外：
+
+- GO-2026-5970 只有 `golang.org/x/text` v0.39.0 修复，这要求 `gorm.io/gorm` 的使用方升级到该版本。
+- GO-2026-6061 只有 `google.golang.org/grpc` v1.82.1 修复；兼容 Go 1.24 的最新 gRPC 版本（`v1.80.0`）仍然受影响。
+
+这两个补丁版本都声明 `go 1.25.0`，且没有更早的修复版本，因此把这两个适配器留在 Go 1.22 或 1.23 就等于继续发布含已知漏洞的依赖图。必须停留在 Go 1.22–1.24 的应用可以继续使用根模块和低层适配器；一旦采用 `data/gorm` 或 `rpc/grpc`，使用方的最低版本即提升到 Go 1.25。
 
 ## 隔离模型
 
@@ -30,7 +35,7 @@ SaaS 仅支持共享数据库、共享 Schema 隔离；租户数据必须具有 
 | Echo | `github.com/labstack/echo/v4` v4.13.4 |
 | Fiber | `github.com/gofiber/fiber/v2` v2.52.13 |
 | Kratos | `github.com/go-kratos/kratos/v2` v2.9.2 |
-| gRPC | `google.golang.org/grpc` v1.75.1 |
+| gRPC | `google.golang.org/grpc` v1.82.1 |
 | OIDC | `github.com/coreos/go-oidc/v3` v3.15.0 和 `golang.org/x/oauth2` v0.30.0 |
 | Redis 缓存 | `github.com/redis/go-redis/v9` v9.21.0 |
 

@@ -8,7 +8,6 @@ import (
 	"testing"
 
 	"github.com/DATA-DOG/go-sqlmock"
-	"github.com/darkinno-tech/saas/internal/sqlutil"
 )
 
 func TestNewSQLStoreValidationOptions(t *testing.T) {
@@ -382,16 +381,6 @@ func newFlags(t *testing.T) []Flag {
 		{Key: "a", Enabled: true, Config: map[string]string{"region": "eu"}},
 		{Key: "b", Enabled: false, Config: map[string]string{}},
 	}
-}
-
-// mustConfigString bridges to sqlutil.MarshalStringMap for expected config strings.
-func mustConfigString(t *testing.T, values map[string]string) string {
-	t.Helper()
-	raw, err := sqlutil.MarshalStringMap(values)
-	if err != nil {
-		t.Fatalf("marshal config: %v", err)
-	}
-	return raw
 }
 
 func newMockFeatureStore(t *testing.T, dialect SQLDialect) (*SQLStore, sqlmock.Sqlmock) {

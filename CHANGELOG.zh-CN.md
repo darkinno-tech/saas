@@ -4,6 +4,12 @@
 
 本文件记录 SaaS 的所有重要变更。
 
+## 未发布
+
+- 修复 CI 门禁：删除被 `golangci-lint` 判定为未使用的 `mustConfigString` 测试辅助函数，并清除 `govulncheck` 告警。
+- 将 `data/gorm` 与 `rpc/grpc` 的最低 Go 版本提升到 `1.25.0`。GO-2026-5970 只有 `golang.org/x/text` v0.39.0 修复，GO-2026-6061 只有 `google.golang.org/grpc` v1.82.1 修复，而这两个版本都要求 Go `1.25.0`，且不存在更早的修复版本。使用 Go `1.22`–`1.24` 的应用仍可使用根模块和低层适配器。详见[兼容性](docs/compatibility.zh-CN.md)。
+- 将 `quickstart`、`gin-gorm` 和 `grpc` 示例提升到 Go `1.25.0`，并在模块矩阵与 CI 工作流中记录该分层变更。
+
 ## v0.2.1 - 2026-07-17
 
 - 补充项目、根包和 Release 的对外简介，使 GitHub 与 pkg.go.dev 能清晰展示 SaaS 的定位和支持的生命周期能力。

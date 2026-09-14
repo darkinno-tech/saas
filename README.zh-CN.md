@@ -38,7 +38,7 @@ SaaS v0.2.0 是一次破坏性改名。Go 模块路径现在是
 ## 要求
 
 - 根模块需要 Go `1.22+`。
-- 可选集成有各自的最低 Go 版本；Redis 和 OIDC 需要 Go `1.24+`。
+- 可选集成有各自的最低 Go 版本；Redis 和 OIDC 需要 Go `1.24+`，GORM 和 gRPC 需要 Go `1.25+`，以便发布修复 GO-2026-5970 与 GO-2026-6061 的版本。
 
 完整兼容矩阵请参阅 [docs/modules.zh-CN.md](docs/modules.zh-CN.md)。
 
@@ -266,7 +266,7 @@ ctx := tenantctx.WithHost(context.Background())
 - `core/resolver`：header、cookie、query、domain、token-claim 和组合式解析器。
 - `core/store`：内存存储、分页列表过滤器、内存缓存、缓存存储装饰器以及 `database/sql` 存储。
 - `data`：与 ORM 无关的租户过滤条件。
-- `data/gorm`：可选的 Go 1.22 GORM 插件、防护套件、仅限主机的 `SafeRaw`/`SafeExec`、`BulkCreate` 和删除 API。
+- `data/gorm`：可选的 Go 1.25 GORM 插件、防护套件、仅限主机的 `SafeRaw`/`SafeExec`、`BulkCreate` 和删除 API。
 - `data/ent`：可选的 Go 1.23 Ent selector 谓词、查询过滤器、变更过滤器和 hook API。
 - `data/sqlx`：用于简单单表 SELECT/UPDATE/DELETE 语句的租户过滤 API。
 - `tenant`：租户生命周期状态机。
@@ -279,7 +279,7 @@ ctx := tenantctx.WithHost(context.Background())
 - `biz/identity`：针对已验证外部身份断言的认证后租户用户映射，提供内存和 `database/sql` 存储。
 - `biz/identity/oidc`：可选的 Go 1.24 OIDC 授权码桥接，支持 PKCE、state、nonce、ID Token 验证、一次性登录状态存储、SQL 支持的登录状态存储和断言输出。
 - `web/http`：核心的 `net/http` 租户中间件和防护，支持可选部署解析；Gin、Echo、Fiber、Kratos 为可选模块。
-- `rpc/grpc`：可选的 Go 1.23 gRPC unary 和 stream 租户拦截器，支持可选部署解析。
+- `rpc/grpc`：可选的 Go 1.25 gRPC unary 和 stream 租户拦截器，支持可选部署解析。
 - `migration`：租户列和索引规划。
 - `cache`：核心租户作用域缓存包装器和内存适配器；`cache/redis` 是可选的 Go 1.24 适配器。
 - `obs`：核心租户可观测性字段、部署单元 ID、脱敏和 `slog` 辅助函数；`obs/otel` 是可选的 Go 1.23 模块。
